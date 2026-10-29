@@ -1,0 +1,1093 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-29T16:30:00+05:00",
+  "title": "Design System: Tabobat Markazi",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Carton White",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 0.0)",
+        "cssVar": "--color-paper",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Page ground, header, menu panel, mobile call bar, form fields; the 00 (home) carton.",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Print Ink",
+        "canonical": "#141414",
+        "oklch": "oklch(19.1% 0.000 0.0)",
+        "cssVar": "--color-ink",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Body text, every 2px rule and outline border, footer ground, article reading header; the 02 Yangiliklar carton.",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#474747",
+        "oklch": "oklch(39.8% 0.000 0.0)",
+        "cssVar": "--color-ink-2",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Ledes, descriptions, dates, spec-table labels, field notes, inactive language links.",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Pencil Grey",
+        "canonical": "#6b6b6b",
+        "oklch": "oklch(52.8% 0.000 0.0)",
+        "cssVar": "--color-ink-3",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Plate captions, fine-print notes, phone-field placeholder only.",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "herb": {
+        "role": "primary",
+        "displayName": "Herb Green",
+        "canonical": "#0b6b43",
+        "oklch": "oklch(46.7% 0.105 158.4)",
+        "cssVar": "--color-herb",
+        "source": "src/app/globals.css @theme",
+        "purpose": "01 Xizmatlar carton and every phone-call action; Xizmatlar addresses and leaflet numbers on paper; Kontaktlar phone icons.",
+        "tonalRamp": [
+          "#000f06",
+          "#002f1a",
+          "#095333",
+          "#267750",
+          "#529b73",
+          "#81be9b",
+          "#abdfc0",
+          "#cefbe0"
+        ]
+      },
+      "herb-deep": {
+        "role": "primary",
+        "displayName": "Deep Herb",
+        "canonical": "#09593a",
+        "oklch": "oklch(41.1% 0.089 160.4)",
+        "cssVar": "--color-herb-deep",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Hover state of every herb slab.",
+        "tonalRamp": [
+          "#000f07",
+          "#012f1c",
+          "#185138",
+          "#337556",
+          "#5b9879",
+          "#87bc9f",
+          "#b0ddc4",
+          "#d3f9e3"
+        ]
+      },
+      "on-herb": {
+        "role": "on-color",
+        "displayName": "White on Herb",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 0.0)",
+        "cssVar": "--color-on-herb",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Primary text on herb.",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "on-herb-2": {
+        "role": "on-color",
+        "displayName": "Herb Mist",
+        "canonical": "#cfe6da",
+        "oklch": "oklch(90.5% 0.029 163.2)",
+        "cssVar": "--color-on-herb-2",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Secondary text on herb: lede, phone number inside the call button.",
+        "tonalRamp": [
+          "#050d09",
+          "#1d2a24",
+          "#3a4941",
+          "#586b61",
+          "#7b8f85",
+          "#a2b3aa",
+          "#c6d5cd",
+          "#e5f2eb"
+        ]
+      },
+      "pomegranate": {
+        "role": "secondary",
+        "displayName": "Pomegranate",
+        "canonical": "#b5112b",
+        "oklch": "oklch(49.4% 0.191 21.9)",
+        "cssVar": "--color-pomegranate",
+        "source": "src/app/globals.css @theme",
+        "purpose": "03 Tabiblar carton and its addresses/links on paper; the warning colour: sample-data notice and flag, form field errors.",
+        "tonalRamp": [
+          "#1f0002",
+          "#4f000b",
+          "#85021b",
+          "#b82333",
+          "#df5357",
+          "#fe8483",
+          "#febebb",
+          "#fee9e7"
+        ]
+      },
+      "on-pomegranate": {
+        "role": "on-color",
+        "displayName": "White on Pomegranate",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 0.0)",
+        "cssVar": "--color-on-pomegranate",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Primary text on pomegranate; text of the sample-data flag.",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "on-pomegranate-2": {
+        "role": "on-color",
+        "displayName": "Pomegranate Blush",
+        "canonical": "#f6d3d8",
+        "oklch": "oklch(89.8% 0.040 8.2)",
+        "cssVar": "--color-on-pomegranate-2",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Secondary text on pomegranate.",
+        "tonalRamp": [
+          "#130709",
+          "#322124",
+          "#553e42",
+          "#7a5d62",
+          "#9e8085",
+          "#c0a6aa",
+          "#e1cacd",
+          "#fde9eb"
+        ]
+      },
+      "saffron": {
+        "role": "secondary",
+        "displayName": "Saffron",
+        "canonical": "#f2b705",
+        "oklch": "oklch(81.1% 0.166 85.0)",
+        "cssVar": "--color-saffron",
+        "source": "src/app/globals.css @theme",
+        "purpose": "04 Fitobar carton and order button; text selection. Never text on paper.",
+        "tonalRamp": [
+          "#110a00",
+          "#332400",
+          "#584102",
+          "#816000",
+          "#ad8200",
+          "#d3a73f",
+          "#f2cc7a",
+          "#feedc8"
+        ]
+      },
+      "saffron-bright": {
+        "role": "secondary",
+        "displayName": "Bright Saffron",
+        "canonical": "#ffc71a",
+        "oklch": "oklch(85.6% 0.171 87.4)",
+        "cssVar": "--color-saffron-bright",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Hover state of the saffron order button.",
+        "tonalRamp": [
+          "#110a00",
+          "#322400",
+          "#574201",
+          "#7f6102",
+          "#aa8303",
+          "#d2a838",
+          "#f1cd76",
+          "#ffedc4"
+        ]
+      },
+      "on-saffron": {
+        "role": "on-color",
+        "displayName": "Ink on Saffron",
+        "canonical": "#141414",
+        "oklch": "oklch(19.1% 0.000 0.0)",
+        "cssVar": "--color-on-saffron",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Primary text on saffron.",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "on-saffron-2": {
+        "role": "on-color",
+        "displayName": "Burnt Saffron",
+        "canonical": "#4a3a05",
+        "oklch": "oklch(35.6% 0.069 90.3)",
+        "cssVar": "--color-on-saffron-2",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Secondary text on saffron; Fitobar item addresses on paper.",
+        "tonalRamp": [
+          "#100a00",
+          "#2f2506",
+          "#51441e",
+          "#756538",
+          "#98885c",
+          "#bbad87",
+          "#dcd0af",
+          "#f8eed1"
+        ]
+      },
+      "cobalt": {
+        "role": "secondary",
+        "displayName": "Cobalt",
+        "canonical": "#1d44c9",
+        "oklch": "oklch(45.6% 0.210 265.4)",
+        "cssVar": "--color-cobalt",
+        "source": "src/app/globals.css @theme",
+        "purpose": "05 Ta'lim carton, application button and course addresses; global focus ring, focused field border, sent-state border.",
+        "tonalRamp": [
+          "#010035",
+          "#05176c",
+          "#1737a0",
+          "#2d58d7",
+          "#5080fb",
+          "#87acfe",
+          "#bcd1fe",
+          "#e7effe"
+        ]
+      },
+      "cobalt-deep": {
+        "role": "secondary",
+        "displayName": "Deep Cobalt",
+        "canonical": "#1838a8",
+        "oklch": "oklch(40.1% 0.183 265.6)",
+        "cssVar": "--color-cobalt-deep",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Hover state of cobalt slabs.",
+        "tonalRamp": [
+          "#010035",
+          "#081c63",
+          "#1d3b94",
+          "#355cc8",
+          "#5882ed",
+          "#88abfe",
+          "#bcd1fe",
+          "#e7efff"
+        ]
+      },
+      "on-cobalt": {
+        "role": "on-color",
+        "displayName": "White on Cobalt",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 0.0)",
+        "cssVar": "--color-on-cobalt",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Primary text on cobalt.",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "on-cobalt-2": {
+        "role": "on-color",
+        "displayName": "Pale Cobalt",
+        "canonical": "#d3dcf7",
+        "oklch": "oklch(89.6% 0.038 271.0)",
+        "cssVar": "--color-on-cobalt-2",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Secondary text on cobalt.",
+        "tonalRamp": [
+          "#080b14",
+          "#212634",
+          "#3f4456",
+          "#5e657c",
+          "#81889f",
+          "#a7adc2",
+          "#cbd1e2",
+          "#e9eefe"
+        ]
+      },
+      "stone": {
+        "role": "neutral",
+        "displayName": "Stone",
+        "canonical": "#e7e4dc",
+        "oklch": "oklch(91.9% 0.011 89.7)",
+        "cssVar": "--color-stone",
+        "source": "src/app/globals.css @theme",
+        "purpose": "06 Kontaktlar carton; fill behind every photographic plate and the map frame. Never text on paper.",
+        "tonalRamp": [
+          "#0c0b08",
+          "#282622",
+          "#47453f",
+          "#68665f",
+          "#8b8982",
+          "#b0aea8",
+          "#d3d1cc",
+          "#f0eeea"
+        ]
+      },
+      "on-stone": {
+        "role": "on-color",
+        "displayName": "Ink on Stone",
+        "canonical": "#141414",
+        "oklch": "oklch(19.1% 0.000 0.0)",
+        "cssVar": "--color-on-stone",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Primary text on stone.",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "on-stone-2": {
+        "role": "on-color",
+        "displayName": "Stone Shadow",
+        "canonical": "#4d4a42",
+        "oklch": "oklch(40.9% 0.014 89.8)",
+        "cssVar": "--color-on-stone-2",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Secondary text on stone; Kontaktlar contact-row addresses on paper.",
+        "tonalRamp": [
+          "#0c0b08",
+          "#282621",
+          "#47453e",
+          "#69665e",
+          "#8c8981",
+          "#b0aea6",
+          "#d3d1ca",
+          "#f0eee9"
+        ]
+      },
+      "on-ink": {
+        "role": "on-color",
+        "displayName": "White on Ink",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 0.0)",
+        "cssVar": "--color-on-ink",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Primary text on ink (footer, article header, Yangiliklar band).",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "on-ink-2": {
+        "role": "on-color",
+        "displayName": "Light Grey",
+        "canonical": "#bdbdbd",
+        "oklch": "oklch(79.8% 0.000 0.0)",
+        "cssVar": "--color-on-ink-2",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Secondary text on ink; footer addresses and notes; footer nav top rule; article crumb and date.",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "on-ink-3": {
+        "role": "on-color",
+        "displayName": "Ink Divider",
+        "canonical": "#333333",
+        "oklch": "oklch(32.1% 0.000 0.0)",
+        "cssVar": "--color-on-ink-3",
+        "source": "src/app/globals.css @theme",
+        "purpose": "1px dividers between footer nav rows. Not a text colour.",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "on-paper": {
+        "role": "on-color",
+        "displayName": "Ink on Paper",
+        "canonical": "#141414",
+        "oklch": "oklch(19.1% 0.000 0.0)",
+        "cssVar": "--color-on-paper",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Primary text on the 00 carton (equals ink).",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "on-paper-2": {
+        "role": "on-color",
+        "displayName": "Graphite on Paper",
+        "canonical": "#474747",
+        "oklch": "oklch(39.8% 0.000 0.0)",
+        "cssVar": "--color-on-paper-2",
+        "source": "src/app/globals.css @theme",
+        "purpose": "Secondary text on the 00 carton (equals ink-2).",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "TABOBAT at edge-cropping scale: top of the home carton and cropped at the foot of the footer. Phones 23vw.",
+        "weight": 900
+      },
+      "section-number": {
+        "displayName": "Section Number",
+        "purpose": "01-06 address in band heads, bleeding off the colour field (-0.16em). Sweep uses clamp(7rem, 34vw, 22rem), line-height 0.78.",
+        "weight": 800
+      },
+      "item-number": {
+        "displayName": "Item Number",
+        "purpose": "Dotted address (01.2) at scale in an item page band head; stacks below the title on phones.",
+        "weight": 800
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "The single hero headline. Phones 2rem.",
+        "weight": 700
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section and item titles in band heads; article title at line-height 1.02. Phones 2.25rem.",
+        "weight": 700
+      },
+      "subhead": {
+        "displayName": "Subhead",
+        "purpose": "Block headings inside a sheet: how to book, application form, other items, quick links. Phones 1.875rem; line-height 1.25 beside running copy.",
+        "weight": 700
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Item names. Phones 1.25rem; section-page rows 1.5rem / 2.25rem; lead news 1.5/2.25rem (home) and 1.875/3rem (own page); home products 1rem / 1.25rem.",
+        "weight": 700
+      },
+      "spec-price": {
+        "displayName": "Spec Price",
+        "purpose": "Price row at the top of a package insert. Phones 1.875rem. Tabular.",
+        "weight": 700
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Prices in rows, products, course table. Phones 1.125rem. Tabular.",
+        "weight": 700
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Section ledes on colour in the on-tone secondary colour, max 46ch. Phones 1rem.",
+        "weight": 400
+      },
+      "reading": {
+        "displayName": "Reading",
+        "purpose": "Article body only, max 65ch. Phones 1.125rem.",
+        "weight": 400
+      },
+      "field": {
+        "displayName": "Field",
+        "purpose": "Text typed into form fields; the course select at 700.",
+        "weight": 400
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Every slab and outline button.",
+        "weight": 700
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions, requirements, booking text, 0.875-1rem, max 52-65ch.",
+        "weight": 400
+      },
+      "address": {
+        "displayName": "Address",
+        "purpose": "Dotted item addresses in the section colour, own left column; band crumbs; field labels. 0.75rem on product tiles.",
+        "weight": 700
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "Spec-table labels and field notes at 400 (Graphite); dates, durations, roles, table heads and field errors at 500.",
+        "weight": 400
+      },
+      "label": {
+        "displayName": "Carton Spec Line",
+        "purpose": "Only the uppercase tracked line under the wordmark (official name / Toshkent · Farobiy 2). Phones 0.75rem.",
+        "weight": 700
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Plate captions and image notes, Pencil Grey. Sample-data flag at 700.",
+        "weight": 400
+      },
+      "menu": {
+        "displayName": "Menu",
+        "purpose": "Full-screen menu rows. Phones 1.875rem.",
+        "weight": 700
+      }
+    },
+    "fonts": [
+      {
+        "family": "Golos Text",
+        "loader": "next/font/google (src/app/[lang]/layout.tsx)",
+        "cssVar": "--font-golos",
+        "weight": "variable",
+        "subsets": [
+          "latin",
+          "latin-ext",
+          "cyrillic"
+        ],
+        "display": "swap",
+        "stack": "var(--font-golos), \"Helvetica Neue\", Arial, sans-serif (as --font-sans)",
+        "weightsUsed": [
+          900,
+          800,
+          700,
+          500,
+          400
+        ]
+      }
+    ],
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "--ease-out-expo in @theme; both phases of the colour sweep."
+      },
+      {
+        "name": "sweep-in",
+        "value": "clip-path inset(100% 0 0 0) -> inset(0 0 0 0), 420ms ease-out-expo, forwards",
+        "purpose": "Section colour rises over the viewport; navigation happens at 420ms underneath it."
+      },
+      {
+        "name": "sweep-hold",
+        "value": "60ms",
+        "purpose": "Pause between in and out phases."
+      },
+      {
+        "name": "sweep-out",
+        "value": "clip-path inset(0 0 0 0) -> inset(0 0 100% 0), 520ms ease-out-expo, forwards",
+        "purpose": "Colour leaves through the top, revealing the target."
+      },
+      {
+        "name": "color-hover",
+        "value": "transition-colors 200ms (Tailwind default ease)",
+        "purpose": "Buttons: herb/saffron/cobalt hover shades, outline and apply-row fills."
+      },
+      {
+        "name": "field-focus",
+        "value": "border-color 150ms",
+        "purpose": "Form field border ink -> cobalt on focus."
+      },
+      {
+        "name": "arrow-nudge",
+        "value": "translateX(4px), 300ms ease-out",
+        "purpose": "Right arrows on row links, quick links, submit and other-item links on hover."
+      },
+      {
+        "name": "plate-hover",
+        "value": "scale(1.02-1.03), 500ms ease-out",
+        "purpose": "Row and card plates inside a whole-row link on hover."
+      },
+      {
+        "name": "range-hover",
+        "value": "filter brightness(1.1), 200ms; arrow translateY(2px), 300ms ease-out",
+        "purpose": "Range strip cell hover."
+      },
+      {
+        "name": "anchor-scroll",
+        "value": "scroll-behavior smooth; scroll-padding-top 4rem",
+        "purpose": "Plain in-page anchors and the Yozilish prefill scroll; auto under reduced motion."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Sweep element display:none and SweepLink navigates normally; smooth scroll off. Modified clicks also skip the sweep."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px",
+        "purpose": "Call button shows its label; menu toggle label; name and phone fields pair; tabib spec labels take a 10rem column; footer nav 2 columns."
+      },
+      {
+        "name": "md",
+        "value": "768px",
+        "purpose": "The real breakpoint: 12-column grid, 40px gutters, range strip as 6 columns, quick links as 3 columns, item number joins the band grid, call bar hidden."
+      },
+      {
+        "name": "lg",
+        "value": "1024px",
+        "purpose": "Application form column narrows to columns 4-9."
+      }
+    ],
+    "layers": [
+      {
+        "name": "call-bar",
+        "value": 30
+      },
+      {
+        "name": "header",
+        "value": 40
+      },
+      {
+        "name": "menu",
+        "value": 50
+      },
+      {
+        "name": "sweep",
+        "value": 60
+      }
+    ],
+    "focus": {
+      "value": "outline 3px solid var(--color-cobalt); outline-offset 3px",
+      "purpose": "Global :focus-visible. Form fields suppress the outline and turn their 2px border cobalt instead.",
+      "offset": "2px",
+      "innerBand": "0 0 0 2px var(--color-paper) (box-shadow)",
+      "why": "Cobalt alone fails 3:1 on herb, pomegranate and ink fields; the paper band carries focus there."
+    },
+    "selection": {
+      "background": "var(--color-saffron)",
+      "color": "var(--color-ink)"
+    },
+    "rules": {
+      "stroke": "2px solid var(--color-ink) for all rules and outline borders; footer: 2px on-ink-2 top rule, 1px on-ink-3 dividers",
+      "radius": "0 everywhere in the interface (the logo artwork is shown as supplied)"
+    },
+    "sectionTones": [
+      {
+        "number": "00",
+        "section": "Bosh sahifa",
+        "tone": "paper"
+      },
+      {
+        "number": "01",
+        "section": "Xizmatlar",
+        "tone": "herb"
+      },
+      {
+        "number": "02",
+        "section": "Yangiliklar",
+        "tone": "ink"
+      },
+      {
+        "number": "03",
+        "section": "Tabiblar",
+        "tone": "pomegranate"
+      },
+      {
+        "number": "04",
+        "section": "Fitobar",
+        "tone": "saffron"
+      },
+      {
+        "number": "05",
+        "section": "Ta'lim",
+        "tone": "cobalt"
+      },
+      {
+        "number": "06",
+        "section": "Kontaktlar",
+        "tone": "stone"
+      }
+    ],
+    "brand": {
+      "officialName": "Respublika xalq tabobati ilmiy-amaliy markazi",
+      "shortName": "Tabobat Markazi",
+      "logoMark": {
+        "file": "public/brand/logo-mark.png",
+        "format": "transparent PNG, 725x712",
+        "placements": [
+          "site header, 36px, on paper",
+          "footer, 56px phones / 72px desktop, on ink, beside the official name"
+        ],
+        "never": "on a pomegranate, herb or any other section colour field: pomegranate and herb swallow its red and blue strokes (about 1.6:1 and 1:1), saffron the orange, cobalt the blue"
+      },
+      "siteIcons": [
+        "src/app/[lang]/icon.png (512x512)",
+        "src/app/[lang]/apple-icon.png (180x180)"
+      ],
+      "logoColors": {
+        "red": "#f03110",
+        "orange": "#fc8f02",
+        "blue": "#3a4eb7",
+        "grey": "#8c8b90",
+        "note": "Colours of the logo mark only, not UI tokens. Tried as section colours (strong, then light tints) on 2026-10-29 and reverted to the original palette."
+      },
+      "source": "PRODUCT.md, Brand Commitments"
+    },
+    "contrast": {
+      "note": "WCAG 2.x ratios computed from the @theme hexes",
+      "pairs": {
+        "on-herb / herb": 6.57,
+        "on-herb-2 / herb": 5.0,
+        "on-herb / herb-deep": 8.39,
+        "on-herb-2 / herb-deep": 6.39,
+        "herb / paper": 6.57,
+        "on-ink / ink": 18.42,
+        "on-ink-2 / ink": 9.81,
+        "on-ink-3 / ink (divider, not text)": 1.46,
+        "on-pomegranate / pomegranate": 6.82,
+        "on-pomegranate-2 / pomegranate": 4.94,
+        "pomegranate / paper": 6.82,
+        "on-saffron / saffron": 10.13,
+        "on-saffron-2 / saffron": 6.08,
+        "on-saffron / saffron-bright": 11.79,
+        "on-saffron-2 / paper": 11.06,
+        "saffron / paper (not used as text)": 1.82,
+        "on-cobalt / cobalt": 7.71,
+        "on-cobalt-2 / cobalt": 5.64,
+        "on-cobalt / cobalt-deep": 9.68,
+        "cobalt / paper": 7.71,
+        "on-stone / stone": 14.5,
+        "on-stone-2 / stone": 6.96,
+        "on-stone-2 / paper": 8.85,
+        "stone / paper (not used as text)": 1.27,
+        "ink / paper": 18.42,
+        "ink-2 / paper": 9.29,
+        "ink-3 / paper": 5.33,
+        "ink / saffron (selection: ink text on saffron)": 10.13,
+        "cobalt focus ring / ink (not a text pair)": 2.39
+      }
+    },
+    "photography": {
+      "aspectRatios": [
+        "1/1",
+        "4/5",
+        "3/4",
+        "4/3",
+        "3/2",
+        "16/10",
+        "16/9",
+        "2/1",
+        "21/9",
+        "21/8"
+      ],
+      "frame": "none; radius 0; stone fill behind",
+      "caption": "0.75rem ink-3, 8px below, states what the image is (concept render, stand-in)",
+      "mockFlag": "pomegranate fill, on-pomegranate 700 0.75rem text \"Namuna ma'lumot\", top-left corner, 10px x 4px padding"
+    },
+    "patterns": {
+      "sectionPages": "src/app/[lang]/{xizmatlar,yangiliklar,tabiblar,fitobar,talim,kontaktlar}/page.tsx: SiteShell + SectionBand as h1.",
+      "sectionBand": "src/components/SectionBand.tsx: props as (h1|h2), number (item address override, e.g. 01.2; stacks below the title on phones), crumb (back link above the grid).",
+      "detailPages": "[slug]/page.tsx under xizmatlar, talim, tabiblar: package-insert layout; optional data rows render only when present.",
+      "applyForm": "src/components/ApplyForm.tsx: tabobat:apply event prefills the course from a row's Yozilish.",
+      "article": "src/app/[lang]/yangiliklar/[slug]/page.tsx: ink header, date column, 65ch body.",
+      "mockNotice": "src/components/MockNotice.tsx plus the portrait flag.",
+      "contactRows": "src/app/[lang]/kontaktlar/page.tsx: data-n generated addresses; quick links via SweepLink.",
+      "shell": "src/components/SiteShell.tsx: SiteHeader, footer, mobile call bar."
+    }
+  },
+  "components": [
+    {
+      "name": "Call Button",
+      "kind": "button",
+      "refersTo": "button-call",
+      "description": "Every phone-call action: herb slab (the Xizmatlar colour), phone icon, label then number in Herb Mist (label hidden under 640px).",
+      "html": "<a href=\"#\" class=\"ds-btn-call\"><svg aria-hidden=\"true\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"/></svg><span>Qo'ng'iroq qilish</span><span class=\"ds-num2\">+998 71 230 02 02</span></a>",
+      "css": ".ds-btn-call{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:56px;padding:0 24px;font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);font-size:1rem;font-weight:700;text-decoration:none;border-radius:0;border:0;cursor:pointer;transition:background-color 200ms, color 200ms;background:var(--color-herb,#0b6b43);color:var(--color-on-herb,#ffffff);} .ds-btn-call .ds-num2{font-weight:500;color:var(--color-on-herb-2,#cfe6da);font-variant-numeric:tabular-nums;white-space:nowrap;} .ds-btn-call:hover{background:var(--color-herb-deep,#09593a);} .ds-btn-call:focus-visible{outline:3px solid var(--color-cobalt,#1d44c9);outline-offset:3px;}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action beside a slab (Kurslar, second phone, all-items links): 2px ink border, fills ink on hover.",
+      "html": "<a href=\"#\" class=\"ds-btn-outline\">Kurslar</a>",
+      "css": ".ds-btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:56px;padding:0 24px;font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);font-size:1rem;font-weight:700;text-decoration:none;border-radius:0;border:0;cursor:pointer;transition:background-color 200ms, color 200ms;background:var(--color-paper,#ffffff);color:var(--color-ink,#141414);border:2px solid var(--color-ink,#141414);} .ds-btn-outline:hover{background:var(--color-ink,#141414);color:var(--color-paper,#ffffff);} .ds-btn-outline:focus-visible{outline:3px solid var(--color-cobalt,#1d44c9);outline-offset:3px;}"
+    },
+    {
+      "name": "Section CTA (Saffron / Cobalt / Apply row)",
+      "kind": "button",
+      "refersTo": "button-section-cobalt",
+      "description": "A section's own action in its carton colour: Fitobar order (saffron), Ta'lim application (cobalt slab), and the 48px cobalt outline \"Yozilish\" on each course row.",
+      "html": "<div style=\"display:flex;gap:8px;flex-wrap:wrap;align-items:center\"><a href=\"#\" class=\"ds-btn-saffron\"><svg aria-hidden=\"true\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"/></svg>Buyurtma berish</a><a href=\"#\" class=\"ds-btn-cobalt\">Ariza yuborish<svg aria-hidden=\"true\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a><a href=\"#\" class=\"ds-btn-apply\">Yozilish</a></div>",
+      "css": ".ds-btn-saffron{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:56px;padding:0 24px;font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);font-size:1rem;font-weight:700;text-decoration:none;border-radius:0;border:0;cursor:pointer;transition:background-color 200ms, color 200ms;background:var(--color-saffron,#f2b705);color:var(--color-on-saffron,#141414);} .ds-btn-saffron:hover{background:var(--color-saffron-bright,#ffc71a);} .ds-btn-cobalt{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:56px;padding:0 24px;font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);font-size:1rem;font-weight:700;text-decoration:none;border-radius:0;border:0;cursor:pointer;transition:background-color 200ms, color 200ms;background:var(--color-cobalt,#1d44c9);color:var(--color-on-cobalt,#ffffff);} .ds-btn-cobalt svg{transition:transform 300ms ease-out;} .ds-btn-cobalt:hover{background:var(--color-cobalt-deep,#1838a8);} .ds-btn-cobalt:hover svg{transform:translateX(4px);} .ds-btn-apply{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 20px;font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);font-size:1rem;font-weight:700;text-decoration:none;border:2px solid var(--color-cobalt,#1d44c9);color:var(--color-cobalt,#1d44c9);background:var(--color-paper,#ffffff);transition:background-color 200ms, color 200ms;} .ds-btn-apply:hover{background:var(--color-cobalt,#1d44c9);color:var(--color-on-cobalt,#ffffff);} .ds-btn-saffron:focus-visible,.ds-btn-cobalt:focus-visible,.ds-btn-apply:focus-visible{outline:3px solid var(--color-cobalt,#1d44c9);outline-offset:3px;}"
+    },
+    {
+      "name": "Site Header",
+      "kind": "nav",
+      "refersTo": "site-header",
+      "description": "Sticky 56px board bar with 2px ink rule: 36px logo mark, current section address and title, UZ/RU/EN, menu toggle.",
+      "html": "<header class=\"ds-header\"><a href=\"#\" class=\"ds-here\"><img src=\"/brand/logo-mark.png\" alt=\"\" width=\"36\" height=\"36\" class=\"ds-mark\"><span class=\"ds-tab\">02</span><span>Yangiliklar</span></a><div class=\"ds-right\"><nav class=\"ds-langs\"><a href=\"#\" class=\"ds-on\">UZ</a><a href=\"#\">RU</a><a href=\"#\">EN</a></nav><button class=\"ds-menu-btn\">Menyu <svg aria-hidden=\"true\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\"><path d=\"M4 6h16M4 12h16M4 18h16\"/></svg></button></div></header>",
+      "css": ".ds-header{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 16px;background:var(--color-paper,#ffffff);color:var(--color-ink,#141414);border-bottom:2px solid var(--color-ink,#141414);font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);} .ds-here{display:flex;gap:8px;align-items:center;font-size:.875rem;font-weight:700;color:inherit;text-decoration:none;} .ds-mark{width:36px;height:36px;margin-right:4px;} .ds-tab{font-variant-numeric:tabular-nums;} .ds-right{display:flex;align-items:center;gap:20px;} .ds-langs{display:flex;font-size:.875rem;} .ds-langs a{padding:4px 6px;text-transform:uppercase;color:var(--color-ink-2,#474747);text-decoration:none;} .ds-langs a:hover{color:var(--color-ink,#141414);} .ds-langs a.ds-on{font-weight:700;color:var(--color-ink,#141414);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.2em;} .ds-menu-btn{display:flex;align-items:center;gap:8px;height:40px;background:none;border:0;font:700 .875rem var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);color:inherit;cursor:pointer;} .ds-menu-btn:focus-visible,.ds-here:focus-visible,.ds-langs a:focus-visible{outline:3px solid var(--color-cobalt,#1d44c9);outline-offset:3px;}"
+    },
+    {
+      "name": "Range Strip",
+      "kind": "nav",
+      "refersTo": "range-cell",
+      "description": "The whole range on one shelf: six cells in fixed colour order, each with address, title and one real fact; each triggers the sweep.",
+      "html": "<ol class=\"ds-range\"><li><a href=\"#\" class=\"ds-range-cell\" style=\"background:var(--color-herb,#0b6b43);color:var(--color-on-herb,#ffffff)\"><span class=\"ds-num\">01</span><span class=\"ds-t\">Xizmatlar</span><span class=\"ds-fact\" style=\"color:var(--color-on-herb-2,#cfe6da)\">4 · 150 000 so'mdan <svg aria-hidden=\"true\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 5v14\"/><path d=\"m19 12-7 7-7-7\"/></svg></span></a></li><li><a href=\"#\" class=\"ds-range-cell\" style=\"background:var(--color-ink,#141414);color:var(--color-on-ink,#ffffff)\"><span class=\"ds-num\">02</span><span class=\"ds-t\">Yangiliklar</span><span class=\"ds-fact\" style=\"color:var(--color-on-ink-2,#bdbdbd)\">3 maqola <svg aria-hidden=\"true\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 5v14\"/><path d=\"m19 12-7 7-7-7\"/></svg></span></a></li><li><a href=\"#\" class=\"ds-range-cell\" style=\"background:var(--color-pomegranate,#b5112b);color:var(--color-on-pomegranate,#ffffff)\"><span class=\"ds-num\">03</span><span class=\"ds-t\">Tabiblar</span><span class=\"ds-fact\" style=\"color:var(--color-on-pomegranate-2,#f6d3d8)\">3 tabib <svg aria-hidden=\"true\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 5v14\"/><path d=\"m19 12-7 7-7-7\"/></svg></span></a></li><li><a href=\"#\" class=\"ds-range-cell\" style=\"background:var(--color-saffron,#f2b705);color:var(--color-on-saffron,#141414)\"><span class=\"ds-num\">04</span><span class=\"ds-t\">Fitobar</span><span class=\"ds-fact\" style=\"color:var(--color-on-saffron-2,#4a3a05)\">6 mahsulot <svg aria-hidden=\"true\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 5v14\"/><path d=\"m19 12-7 7-7-7\"/></svg></span></a></li><li><a href=\"#\" class=\"ds-range-cell\" style=\"background:var(--color-cobalt,#1d44c9);color:var(--color-on-cobalt,#ffffff)\"><span class=\"ds-num\">05</span><span class=\"ds-t\">Ta'lim</span><span class=\"ds-fact\" style=\"color:var(--color-on-cobalt-2,#d3dcf7)\">6 kurs · 4–10 hafta <svg aria-hidden=\"true\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 5v14\"/><path d=\"m19 12-7 7-7-7\"/></svg></span></a></li><li><a href=\"#\" class=\"ds-range-cell\" style=\"background:var(--color-stone,#e7e4dc);color:var(--color-on-stone,#141414)\"><span class=\"ds-num\">06</span><span class=\"ds-t\">Kontaktlar</span><span class=\"ds-fact\" style=\"color:var(--color-on-stone-2,#4d4a42)\">Farobiy 2 <svg aria-hidden=\"true\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 5v14\"/><path d=\"m19 12-7 7-7-7\"/></svg></span></a></li></ol>",
+      "css": ".ds-range{display:grid;grid-template-columns:repeat(6,1fr);list-style:none;margin:0;padding:0;border-top:2px solid var(--color-ink,#141414);border-bottom:2px solid var(--color-ink,#141414);font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);} .ds-range li+li{border-left:2px solid var(--color-ink,#141414);} .ds-range-cell{display:grid;grid-template-rows:auto 1fr auto;min-height:112px;padding:12px 20px;text-decoration:none;transition:filter 200ms;} .ds-range-cell:hover{filter:brightness(1.1);} .ds-range-cell:focus-visible{outline:3px solid var(--color-cobalt,#1d44c9);outline-offset:3px;} .ds-num{font-size:1rem;font-weight:700;font-variant-numeric:tabular-nums;} .ds-t{align-self:end;font-size:1.25rem;font-weight:700;letter-spacing:-.02em;} .ds-fact{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:.875rem;white-space:nowrap;font-variant-numeric:tabular-nums;} .ds-fact svg{transition:transform 300ms ease-out;} .ds-range-cell:hover .ds-fact svg{transform:translateY(2px);} @media (max-width:767px){.ds-range{grid-template-columns:1fr;} .ds-range li+li{border-left:0;} .ds-range-cell{grid-template-columns:44px 1fr auto;grid-template-rows:none;align-items:center;min-height:48px;height:48px;padding:0 16px;} .ds-t{align-self:center;font-size:.95rem;} .ds-fact{margin:0;font-size:.75rem;} .ds-fact svg{display:none;}}"
+    },
+    {
+      "name": "Section Band (item page)",
+      "kind": "custom",
+      "refersTo": "section-band-head",
+      "description": "The carton head: full-bleed section colour, address at architectural scale bleeding off the bottom edge, title (h1 on its own page) and lede; optional crumb back to the section; an item page sets its dotted address, which stacks below the title on phones.",
+      "html": "<section class=\"ds-band\"><div class=\"ds-band-crumb\"><a href=\"#\"><svg aria-hidden=\"true\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m12 19-7-7 7-7\"/><path d=\"M19 12H5\"/></svg><span class=\"ds-tab\">01</span> Xizmatlar</a></div><div class=\"ds-band-grid\"><div class=\"ds-band-num\">01.2</div><div class=\"ds-band-copy\"><h1>Fitoterapiya</h1><p>Dorivor o'simliklar asosida shaxsiy davolash dasturi.</p></div></div></section>",
+      "css": ".ds-band{overflow:hidden;background:var(--color-herb,#0b6b43);color:var(--color-on-herb,#ffffff);font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);} .ds-band-crumb{padding:24px 40px 0;font-size:.875rem;font-weight:700;} .ds-band-crumb a{display:inline-flex;align-items:center;gap:8px;color:var(--color-on-herb-2,#cfe6da);text-decoration:none;} .ds-band-crumb a:hover{text-decoration:underline;text-decoration-thickness:2px;} .ds-band-crumb a:focus-visible{outline:3px solid var(--color-cobalt,#1d44c9);outline-offset:3px;} .ds-tab{font-variant-numeric:tabular-nums;} .ds-band-grid{display:grid;grid-template-columns:auto 1fr;align-items:end;gap:0 24px;padding:40px 40px 0;} .ds-band-num{margin-bottom:-.16em;font-size:clamp(6.5rem,34vw,13rem);line-height:.8;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums;} .ds-band-copy{padding-bottom:40px;} .ds-band h1{margin:0;font-size:4.5rem;line-height:1;font-weight:700;letter-spacing:-.03em;} .ds-band p{margin:20px 0 0;max-width:46ch;font-size:1.25rem;line-height:1.375;color:var(--color-on-herb-2,#cfe6da);} @media (max-width:767px){.ds-band-crumb{padding:16px 16px 0;} .ds-band-grid{grid-template-columns:1fr;padding:24px 16px 0;} .ds-band-num{order:2;} .ds-band h1{font-size:2.25rem;} .ds-band p{font-size:1rem;margin-top:12px;} .ds-band-copy{padding-bottom:20px;}}"
+    },
+    {
+      "name": "Numbered Item Row",
+      "kind": "custom",
+      "refersTo": "item-address",
+      "description": "Ruled row with the dotted address in its own left column in the section colour; title and description; tabular price right. The whole row links to the item page.",
+      "html": "<ol class=\"ds-rows\"><li><span class=\"ds-addr\">01.1</span><div><h3><a href=\"#\">Hijoma (qon olish)</a></h3><p>Sunnat asosidagi an'anaviy hijoma muolajasi.</p></div><p class=\"ds-price\">250 000 so'm</p></li><li><span class=\"ds-addr\">01.2</span><div><h3><a href=\"#\">Fitoterapiya</a></h3><p>Dorivor o'simliklar asosida shaxsiy davolash dasturi.</p></div><p class=\"ds-price\">180 000 so'm</p></li></ol>",
+      "css": ".ds-rows{list-style:none;margin:0;padding:0;border-top:2px solid var(--color-ink,#141414);font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);color:var(--color-ink,#141414);} .ds-rows li{display:grid;grid-template-columns:56px 1fr auto;gap:8px 24px;padding:24px 0;border-bottom:2px solid var(--color-ink,#141414);} .ds-addr{padding-top:8px;font-size:.875rem;font-weight:700;color:var(--color-herb,#0b6b43);font-variant-numeric:tabular-nums;} .ds-rows h3{margin:0;font-size:1.5rem;line-height:1.25;font-weight:700;letter-spacing:-.02em;} .ds-rows h3 a{color:inherit;text-decoration:none;} .ds-rows li:hover h3 a{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.2em;} .ds-rows h3 a:focus-visible{outline:3px solid var(--color-cobalt,#1d44c9);outline-offset:3px;} .ds-rows li p{margin:6px 0 0;max-width:60ch;font-size:1rem;line-height:1.375;color:var(--color-ink-2,#474747);} .ds-rows .ds-price{margin:0;padding-top:2px;text-align:right;font-size:1.5rem;font-weight:700;color:var(--color-ink,#141414);font-variant-numeric:tabular-nums;} @media (max-width:767px){.ds-rows li{grid-template-columns:44px 1fr;gap:8px 12px;padding:16px 0;} .ds-rows h3{font-size:1.25rem;} .ds-rows .ds-price{grid-column:2;text-align:left;font-size:1.125rem;}}"
+    },
+    {
+      "name": "Package Insert Spec Table",
+      "kind": "card",
+      "refersTo": "spec-row",
+      "description": "Item-page insert: a dl ruled in 2px ink, price first at Spec Price, optional rows only when data exists, an ask-by-phone note when a needed fact is missing, then the call actions.",
+      "html": "<aside class=\"ds-insert\"><dl><div><dt>Narxi</dt><dd class=\"ds-spec-price\">180 000 so'm</dd></div><div><dt>Yozilish</dt><dd>Telefon orqali</dd></div></dl><a href=\"#\" class=\"ds-insert-call\"><svg aria-hidden=\"true\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"/></svg><span>+998 71 230 02 02</span></a><p class=\"ds-insert-note\">Davomiyligi va qarshi ko'rsatmalar haqida qo'ng'iroq qilib so'rang.</p></aside>",
+      "css": ".ds-insert{max-width:440px;font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);color:var(--color-ink,#141414);} .ds-insert dl{margin:0;border-top:2px solid var(--color-ink,#141414);} .ds-insert dl div{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:2px solid var(--color-ink,#141414);} .ds-insert dt{font-size:.875rem;color:var(--color-ink-2,#474747);} .ds-insert dd{margin:0;font-size:1.25rem;font-weight:700;font-variant-numeric:tabular-nums;} .ds-insert .ds-spec-price{font-size:2.25rem;line-height:1.1;letter-spacing:-.02em;} .ds-insert-call{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:56px;padding:0 24px;font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);font-size:1rem;font-weight:700;text-decoration:none;border-radius:0;border:0;cursor:pointer;transition:background-color 200ms, color 200ms;width:100%;box-sizing:border-box;margin-top:24px;background:var(--color-herb,#0b6b43);color:var(--color-on-herb,#ffffff);font-variant-numeric:tabular-nums;} .ds-insert-call:hover{background:var(--color-herb-deep,#09593a);} .ds-insert-call:focus-visible{outline:3px solid var(--color-cobalt,#1d44c9);outline-offset:3px;} .ds-insert-note{margin:20px 0 0;padding-top:12px;border-top:2px solid var(--color-ink,#141414);font-size:.875rem;line-height:1.375;color:var(--color-ink-2,#474747);}"
+    },
+    {
+      "name": "Course Application Form",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Labels above 56px fields with 2px ink borders; focus turns the border cobalt; an error turns it pomegranate with a pomegranate message beneath; cobalt submit slab.",
+      "html": "<form class=\"ds-form\" onsubmit=\"return false\"><h2>Kursga ariza</h2><label for=\"ds-c\">Kurs</label><div class=\"ds-sel\"><select id=\"ds-c\" class=\"ds-field ds-bold\"><option>Fitoterapiya asoslari</option></select><svg aria-hidden=\"true\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m6 9 6 6 6-6\"/></svg></div><label for=\"ds-n\">Ism</label><input id=\"ds-n\" class=\"ds-field\" type=\"text\"><label for=\"ds-p\">Telefon</label><input id=\"ds-p\" class=\"ds-field ds-err\" type=\"tel\" placeholder=\"+998 __ ___ __ __\" aria-invalid=\"true\"><p class=\"ds-errmsg\">Telefon raqamini to'liq yozing, masalan +998 90 123 45 67.</p><button type=\"submit\" class=\"ds-submit\">Ariza yuborish<svg aria-hidden=\"true\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button></form>",
+      "css": ".ds-form{max-width:520px;padding-top:20px;border-top:2px solid var(--color-ink,#141414);font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);color:var(--color-ink,#141414);} .ds-form h2{margin:0 0 24px;font-size:1.875rem;font-weight:700;letter-spacing:-.02em;} .ds-form label{display:block;margin-top:20px;font-size:.875rem;font-weight:700;} .ds-field{display:block;box-sizing:border-box;width:100%;height:56px;margin-top:6px;padding:0 16px;border:2px solid var(--color-ink,#141414);border-radius:0;background:var(--color-paper,#ffffff);color:var(--color-ink,#141414);font:400 1.125rem var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);outline:none;transition:border-color 150ms;} .ds-field:focus-visible{border-color:var(--color-cobalt,#1d44c9);outline:0;} .ds-field::placeholder{color:var(--color-ink-3,#6b6b6b);} .ds-bold{font-weight:700;appearance:none;padding-right:48px;} .ds-sel{position:relative;} .ds-sel svg{position:absolute;right:16px;top:50%;margin-top:3px;transform:translateY(-50%);pointer-events:none;} .ds-err{border-color:var(--color-pomegranate,#b5112b);font-variant-numeric:tabular-nums;} .ds-errmsg{margin:6px 0 0;font-size:.875rem;font-weight:500;color:var(--color-pomegranate,#b5112b);} .ds-submit{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:56px;padding:0 24px;font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);font-size:1rem;font-weight:700;text-decoration:none;border-radius:0;border:0;cursor:pointer;transition:background-color 200ms, color 200ms;margin-top:24px;background:var(--color-cobalt,#1d44c9);color:var(--color-on-cobalt,#ffffff);} .ds-submit svg{transition:transform 300ms ease-out;} .ds-submit:hover{background:var(--color-cobalt-deep,#1838a8);} .ds-submit:hover svg{transform:translateX(4px);} .ds-submit:focus-visible{outline:3px solid var(--color-cobalt,#1d44c9);outline-offset:3px;}"
+    },
+    {
+      "name": "Sample-Data Notice and Flag",
+      "kind": "custom",
+      "refersTo": "mock-notice",
+      "description": "Announces sample content: 2px pomegranate-bordered notice with info icon and bold pomegranate label; pomegranate flag in the top-left corner of each sample portrait.",
+      "html": "<div class=\"ds-mockwrap\"><p class=\"ds-mock\"><svg aria-hidden=\"true\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 16v-4\"/><path d=\"M12 8h.01\"/></svg><span><strong>Namuna ma'lumot.</strong> Bu sahifadagi tabiblar, ularning ismlari va suratlari vaqtinchalik.</span></p><div class=\"ds-portrait\"><span class=\"ds-flag\">Namuna ma'lumot</span></div></div>",
+      "css": ".ds-mockwrap{font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);color:var(--color-ink,#141414);max-width:520px;} .ds-mock{display:flex;gap:12px;margin:0;padding:12px 16px;border:2px solid var(--color-pomegranate,#b5112b);font-size:1rem;line-height:1.375;} .ds-mock svg{flex-shrink:0;margin-top:2px;color:var(--color-pomegranate,#b5112b);} .ds-mock strong{font-weight:700;color:var(--color-pomegranate,#b5112b);} .ds-portrait{position:relative;width:200px;aspect-ratio:4/5;margin-top:24px;background:var(--color-stone,#e7e4dc);} .ds-flag{position:absolute;top:0;left:0;padding:4px 10px;background:var(--color-pomegranate,#b5112b);color:var(--color-on-pomegranate,#ffffff);font-size:.75rem;font-weight:700;}"
+    },
+    {
+      "name": "Article Header",
+      "kind": "custom",
+      "refersTo": "article-header",
+      "description": "News reading layout head: ink field, crumb back to 02 Yangiliklar, date in its own left column, Headline-size title and Light Grey description.",
+      "html": "<header class=\"ds-art\"><a href=\"#\" class=\"ds-art-crumb\"><svg aria-hidden=\"true\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m12 19-7-7 7-7\"/><path d=\"M19 12H5\"/></svg><span class=\"ds-tab\">02</span> Yangiliklar</a><div class=\"ds-art-grid\"><time class=\"ds-art-date\">15.06.2026</time><div><h1>Tabobat markazi Toshkentda o'z eshiklarini ochdi</h1><p>Sharq tibbiyoti an'analarini zamonaviy makon bilan uyg'unlashtirgan yangi markaz tashrif buyuruvchilar uchun ochildi.</p></div></div></header>",
+      "css": ".ds-art{padding:24px 40px 56px;background:var(--color-ink,#141414);color:var(--color-on-ink,#ffffff);font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);} .ds-art-crumb{display:inline-flex;align-items:center;gap:8px;font-size:.875rem;font-weight:700;color:var(--color-on-ink-2,#bdbdbd);text-decoration:none;} .ds-art-crumb:hover{text-decoration:underline;} .ds-art-crumb:focus-visible{outline:3px solid var(--color-cobalt,#1d44c9);outline-offset:3px;} .ds-tab{font-variant-numeric:tabular-nums;} .ds-art-grid{display:grid;grid-template-columns:1fr 3fr;gap:24px;margin-top:56px;} .ds-art-date{padding-top:12px;font-size:1rem;font-weight:700;color:var(--color-on-ink-2,#bdbdbd);font-variant-numeric:tabular-nums;} .ds-art h1{margin:0;font-size:4.5rem;line-height:1.02;font-weight:700;letter-spacing:-.03em;} .ds-art p{margin:24px 0 0;max-width:52ch;font-size:1.5rem;line-height:1.375;color:var(--color-on-ink-2,#bdbdbd);} @media (max-width:767px){.ds-art{padding:16px 16px 32px;} .ds-art-grid{grid-template-columns:1fr;gap:12px;margin-top:32px;} .ds-art-date{padding:0;font-size:.875rem;} .ds-art h1{font-size:2.25rem;} .ds-art p{font-size:1.125rem;margin-top:16px;}}"
+    },
+    {
+      "name": "Contact Rows and Quick Links",
+      "kind": "custom",
+      "refersTo": "quick-link-cell",
+      "description": "Kontaktlar: ruled rows numbered 06.1-06.4 from data-n in Stone Shadow; then colour-coded quick-link cells in each target section's colour that trigger the sweep.",
+      "html": "<div class=\"ds-contact\"><dl><div class=\"ds-crow\" data-n=\"06.1\"><dt>Manzil</dt><dd class=\"ds-big\">Toshkent, Olmazor tumani, Farobiy 2</dd></div><div class=\"ds-crow\" data-n=\"06.2\"><dt>Telefonlar</dt><dd class=\"ds-big ds-tab\"><span class=\"ds-ph\"><svg aria-hidden=\"true\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"/></svg></span>+998 71 230 02 02</dd></div></dl><ol class=\"ds-quick\"><li><a href=\"#\" style=\"background:var(--color-herb,#0b6b43);color:var(--color-on-herb,#ffffff)\"><span class=\"ds-q-sec\" style=\"color:var(--color-on-herb-2,#cfe6da)\">01 Xizmatlar</span><span class=\"ds-q-act\">Qabulga yozilish<svg aria-hidden=\"true\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></span></a></li><li><a href=\"#\" style=\"background:var(--color-cobalt,#1d44c9);color:var(--color-on-cobalt,#ffffff)\"><span class=\"ds-q-sec\" style=\"color:var(--color-on-cobalt-2,#d3dcf7)\">05 Ta'lim</span><span class=\"ds-q-act\">Kursga ariza<svg aria-hidden=\"true\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></span></a></li><li><a href=\"#\" style=\"background:var(--color-saffron,#f2b705);color:var(--color-on-saffron,#141414)\"><span class=\"ds-q-sec\" style=\"color:var(--color-on-saffron-2,#4a3a05)\">04 Fitobar</span><span class=\"ds-q-act\">Buyurtma berish<svg aria-hidden=\"true\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></span></a></li></ol></div>",
+      "css": ".ds-contact{font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);color:var(--color-ink,#141414);} .ds-contact dl{margin:0;max-width:520px;border-top:2px solid var(--color-ink,#141414);} .ds-crow{display:grid;grid-template-columns:44px 1fr;column-gap:12px;padding:20px 0;border-bottom:2px solid var(--color-ink,#141414);} .ds-crow::before{content:attr(data-n);grid-row:span 2;padding-top:4px;font-size:.875rem;font-weight:700;color:var(--color-on-stone-2,#4d4a42);font-variant-numeric:tabular-nums;} .ds-crow dt{grid-column:2;font-size:.875rem;color:var(--color-ink-2,#474747);} .ds-crow dd{grid-column:2;margin:4px 0 0;} .ds-big{font-size:1.5rem;line-height:1.25;font-weight:700;letter-spacing:-.02em;} .ds-tab{font-variant-numeric:tabular-nums;} .ds-ph{display:inline-flex;vertical-align:-2px;margin-right:12px;color:var(--color-herb,#0b6b43);} .ds-quick{display:grid;grid-template-columns:repeat(3,1fr);list-style:none;margin:40px 0 0;padding:0;border-top:2px solid var(--color-ink,#141414);border-bottom:2px solid var(--color-ink,#141414);} .ds-quick li+li{border-left:2px solid var(--color-ink,#141414);} .ds-quick a{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:12px;min-height:144px;box-sizing:border-box;padding:16px 20px;text-decoration:none;} .ds-quick a:focus-visible{outline:3px solid var(--color-cobalt,#1d44c9);outline-offset:3px;} .ds-q-sec{font-size:.875rem;font-weight:700;font-variant-numeric:tabular-nums;} .ds-q-act{display:flex;align-items:center;gap:8px;font-size:1.5rem;font-weight:700;} .ds-q-act svg{transition:transform 300ms ease-out;} .ds-quick a:hover .ds-q-act svg{transform:translateX(4px);} @media (max-width:767px){.ds-quick{grid-template-columns:1fr;} .ds-quick li+li{border-left:0;border-top:2px solid var(--color-ink,#141414);} .ds-quick a{min-height:96px;padding:16px;} .ds-q-act{font-size:1.25rem;}}"
+    },
+    {
+      "name": "Photographic Plate",
+      "kind": "card",
+      "refersTo": "plate-caption",
+      "description": "Unframed square-cornered image at a fixed aspect ratio over a Stone fill, with a Pencil Grey caption naming what it is.",
+      "html": "<figure class=\"ds-plate\"><div class=\"ds-plate-img\"></div><figcaption>Konsept vizualizatsiya</figcaption></figure>",
+      "css": ".ds-plate{margin:0;font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);max-width:420px;} .ds-plate-img{aspect-ratio:4/5;background:var(--color-stone,#e7e4dc);border-radius:0;} .ds-plate figcaption{margin-top:8px;font-size:.75rem;line-height:1.33;color:var(--color-ink-3,#6b6b6b);}"
+    },
+    {
+      "name": "Numbered Menu",
+      "kind": "nav",
+      "refersTo": "menu-item",
+      "description": "Full-screen menu: one equal-height colour row per section with address and title; choosing a row closes the menu and runs the sweep.",
+      "html": "<ol class=\"ds-menu\"><li><a href=\"#\" class=\"ds-menu-row\" style=\"background:var(--color-herb,#0b6b43);color:var(--color-on-herb,#ffffff)\"><span class=\"ds-menu-num\" style=\"color:var(--color-on-herb-2,#cfe6da)\">01</span>Xizmatlar</a></li><li><a href=\"#\" class=\"ds-menu-row\" style=\"background:var(--color-ink,#141414);color:var(--color-on-ink,#ffffff)\"><span class=\"ds-menu-num\" style=\"color:var(--color-on-ink-2,#bdbdbd)\">02</span>Yangiliklar</a></li><li><a href=\"#\" class=\"ds-menu-row\" style=\"background:var(--color-pomegranate,#b5112b);color:var(--color-on-pomegranate,#ffffff)\"><span class=\"ds-menu-num\" style=\"color:var(--color-on-pomegranate-2,#f6d3d8)\">03</span>Tabiblar</a></li><li><a href=\"#\" class=\"ds-menu-row\" style=\"background:var(--color-saffron,#f2b705);color:var(--color-on-saffron,#141414)\"><span class=\"ds-menu-num\" style=\"color:var(--color-on-saffron-2,#4a3a05)\">04</span>Fitobar</a></li><li><a href=\"#\" class=\"ds-menu-row\" style=\"background:var(--color-cobalt,#1d44c9);color:var(--color-on-cobalt,#ffffff)\"><span class=\"ds-menu-num\" style=\"color:var(--color-on-cobalt-2,#d3dcf7)\">05</span>Ta'lim</a></li><li><a href=\"#\" class=\"ds-menu-row\" style=\"background:var(--color-stone,#e7e4dc);color:var(--color-on-stone,#141414)\"><span class=\"ds-menu-num\" style=\"color:var(--color-on-stone-2,#4d4a42)\">06</span>Kontaktlar</a></li></ol>",
+      "css": ".ds-menu{display:flex;flex-direction:column;list-style:none;margin:0;padding:0;font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);border-top:2px solid var(--color-ink,#141414);} .ds-menu-row{display:flex;align-items:center;gap:20px;min-height:64px;padding:0 40px;border-bottom:2px solid var(--color-ink,#141414);font-size:3rem;font-weight:700;letter-spacing:-.02em;text-decoration:none;} .ds-menu-row:focus-visible{outline:3px solid var(--color-cobalt,#1d44c9);outline-offset:-3px;} .ds-menu-num{width:80px;font-size:1.5rem;font-variant-numeric:tabular-nums;} @media (max-width:767px){.ds-menu-row{padding:0 16px;font-size:1.875rem;} .ds-menu-num{width:48px;font-size:1rem;}}"
+    },
+    {
+      "name": "Footer",
+      "kind": "nav",
+      "refersTo": "footer",
+      "description": "Ink ground: logo mark beside the official name, numbered nav grid with Light Grey top rule and Ink Divider rows, provenance note, cropped wordmark.",
+      "html": "<footer class=\"ds-foot\"><div class=\"ds-foot-brand\"><img src=\"/brand/logo-mark.png\" alt=\"\" width=\"72\" height=\"72\"><p>Respublika xalq tabobati ilmiy-amaliy markazi</p></div><ol class=\"ds-foot-nav\"><li><a href=\"#\"><span>01</span>Xizmatlar</a></li><li><a href=\"#\"><span>02</span>Yangiliklar</a></li><li><a href=\"#\"><span>03</span>Tabiblar</a></li><li><a href=\"#\"><span>04</span>Fitobar</a></li></ol><p class=\"ds-foot-note\">Saytdagi tasvirlar konsept vizualizatsiyalar; markazning haqiqiy suratlari tez orada.</p><p class=\"ds-foot-mark\" aria-hidden=\"true\">TABOBAT</p></footer>",
+      "css": ".ds-foot{overflow:hidden;padding:40px 40px 0;background:var(--color-ink,#141414);color:var(--color-on-ink,#ffffff);font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);} .ds-foot-brand{display:flex;align-items:center;gap:20px;margin-bottom:40px;} .ds-foot-brand img{width:72px;height:72px;flex-shrink:0;} .ds-foot-brand p{margin:0;max-width:28ch;font-size:1.5rem;line-height:1.25;font-weight:700;} .ds-foot-nav{display:grid;grid-template-columns:repeat(4,1fr);column-gap:24px;list-style:none;margin:0;padding:0;border-top:2px solid var(--color-on-ink-2,#bdbdbd);} .ds-foot-nav li{border-bottom:1px solid var(--color-on-ink-3,#333333);} .ds-foot-nav a{display:flex;gap:16px;padding:12px 0;font-size:1.125rem;font-weight:700;color:inherit;text-decoration:none;} .ds-foot-nav a:hover{text-decoration:underline;} .ds-foot-nav a:focus-visible{outline:3px solid var(--color-cobalt,#1d44c9);outline-offset:3px;} .ds-foot-nav span{width:32px;color:var(--color-on-ink-2,#bdbdbd);font-variant-numeric:tabular-nums;} .ds-foot-note{margin:32px 0 0;font-size:.875rem;color:var(--color-on-ink-2,#bdbdbd);} .ds-foot-mark{margin:40px 0 -.18em;font-size:9rem;line-height:.8;font-weight:900;letter-spacing:-.04em;white-space:nowrap;} @media (max-width:767px){.ds-foot{padding:40px 16px 0;} .ds-foot-brand{gap:16px;margin-bottom:32px;} .ds-foot-brand img{width:56px;height:56px;} .ds-foot-brand p{font-size:1.125rem;} .ds-foot-nav{grid-template-columns:1fr;} .ds-foot-mark{font-size:23vw;}}"
+    },
+    {
+      "name": "Mobile Call Bar",
+      "kind": "custom",
+      "refersTo": "call-bar",
+      "description": "Phones only: fixed board bar at the bottom, 2px ink top rule, full-width herb call button.",
+      "html": "<div class=\"ds-callbar\"><a href=\"#\" class=\"ds-callbar-btn\"><svg aria-hidden=\"true\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"/></svg><span>+998 71 230 02 02</span></a></div>",
+      "css": ".ds-callbar{padding:8px;background:var(--color-paper,#ffffff);border-top:2px solid var(--color-ink,#141414);max-width:390px;} .ds-callbar-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:56px;padding:0 24px;font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);font-size:1rem;font-weight:700;text-decoration:none;border-radius:0;border:0;cursor:pointer;transition:background-color 200ms, color 200ms;width:100%;box-sizing:border-box;background:var(--color-herb,#0b6b43);color:var(--color-on-herb,#ffffff);font-variant-numeric:tabular-nums;} .ds-callbar-btn:hover{background:var(--color-herb-deep,#09593a);} .ds-callbar-btn:focus-visible{outline:3px solid var(--color-cobalt,#1d44c9);outline-offset:3px;}"
+    },
+    {
+      "name": "Colour Sweep",
+      "kind": "custom",
+      "description": "Signature transition: the target section's colour rises over the viewport carrying its number and title, then leaves through the top. Triggered by range cells, menu rows and quick links. Removed under reduced motion.",
+      "html": "<div class=\"ds-sweep-stage\"><div class=\"ds-sweep\"><span class=\"ds-sweep-num\">05</span><span class=\"ds-sweep-title\">Ta'lim</span></div></div>",
+      "css": ".ds-sweep-stage{position:relative;height:320px;overflow:hidden;background:var(--color-paper,#ffffff);border:2px solid var(--color-ink,#141414);} .ds-sweep{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:0 24px 24px;background:var(--color-cobalt,#1d44c9);color:var(--color-on-cobalt,#ffffff);font-family:var(--font-sans, 'Golos Text', 'Helvetica Neue', Arial, sans-serif);clip-path:inset(100% 0 0 0);animation:ds-sweep 2.4s cubic-bezier(.16,1,.3,1) infinite;} .ds-sweep-num{font-size:8rem;line-height:.78;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums;} .ds-sweep-title{margin-top:16px;font-size:2.25rem;font-weight:700;letter-spacing:-.02em;} @keyframes ds-sweep{0%{clip-path:inset(100% 0 0 0);} 18%{clip-path:inset(0 0 0 0);} 40%{clip-path:inset(0 0 0 0);} 62%{clip-path:inset(0 0 100% 0);} 100%{clip-path:inset(0 0 100% 0);}} @media (prefers-reduced-motion:reduce){.ds-sweep{animation:none;clip-path:inset(0 0 0 0);}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Pharmaceutical Range",
+    "overview": "The centre is presented as one coherent line of medicine cartons. Every section is a carton in the range: it owns one flat colour, carries a two-digit address at architectural scale, and opens onto white board where its contents sit in a strict Swiss grid. The ground is white carton board, the ink is a near-black print, and the only decoration is the colour of the section you are in. A visitor reads the whole range on one shelf (the colour strip under the hero), then moves between cartons by number. Each carton opens into its own section page, and each item in it into a page laid out like the package insert folded inside the box.\n\nDensity is high and orderly: priced lists, spec tables and numbered rows ruled off with 2px ink lines, with one photographic plate owning each sheet. Type is a single grotesk driven by weight, not by family changes: 900 for the wordmark, 800 for section numbers, 700 for everything that must be read first. Corners are square everywhere. Nothing floats; depth comes from colour fields and rules, never from shadow.\n\nThe system refuses the clinic template: no split hero with a smiling doctor, no equal service cards, no stats row, no testimonials.",
+    "keyCharacteristics": [
+      "White board ground (paper), near-black ink, one strong flat colour per section in fixed order.",
+      "Section numbers 00–06 are addresses: in the header, the range strip, the band heads, the menu, the sweep and the footer. Items extend them (01.2), and an item page sets its own address at scale.",
+      "One grotesk (Golos Text) at hard weight steps; tabular numerals for every number, price, date and address.",
+      "2px ink rules and zero radius throughout.",
+      "Unframed photographic plates with a small caption beneath.",
+      "The logo mark in the header and footer, on paper and ink only.",
+      "Signature motion: the colour sweep between sections."
+    ],
+    "rules": [
+      {
+        "name": "The Range Order Rule",
+        "body": "Section colours are bound to sections and never reordered: 00 paper, 01 herb, 02 ink, 03 pomegranate, 04 saffron, 05 cobalt, 06 stone. Colour order is the navigation. A section's colour appears only in that section's band, its item addresses, its range-strip cell, its menu row, its sweep, its own CTA, and a quick-link cell elsewhere that routes into that section. Every one of those fields uses the strong colour itself.",
+        "section": "colors"
+      },
+      {
+        "name": "The Call Is Green Rule",
+        "body": "Every phone-call action is herb with white text wherever it appears, including outside Xizmatlar (hero, other sections' booking blocks, the mobile call bar), and deepens to herb-deep on hover. A section CTA that is the section's own action takes its section colour instead: saffron for Fitobar's order, cobalt for Ta'lim's application.",
+        "section": "colors"
+      },
+      {
+        "name": "The On-Colour Rule",
+        "body": "Text on a colour field uses that field's paired on-colour (`on-<tone>` for primary text, `on-<tone>-2` for secondary). Saffron and stone are never used as text on paper: Fitobar's item addresses use Burnt Saffron (on-saffron-2), Kontaktlar's row addresses use Stone Shadow (on-stone-2), and Yangiliklar sets no coloured addresses on paper.",
+        "section": "colors"
+      },
+      {
+        "name": "The Logo Field Rule",
+        "body": "The logo mark sits only on paper (site header) and on ink (footer). It never sits on a pomegranate or herb field, or any other section colour: pomegranate and herb swallow its red and blue strokes (about 1.6:1 and 1:1), saffron swallows the orange, and cobalt the blue.",
+        "section": "colors"
+      },
+      {
+        "name": "The Warning Pomegranate Rule",
+        "body": "Pomegranate is the only warning colour: a field in error takes a 2px pomegranate border and a pomegranate message beneath it, and sample data is announced in pomegranate. Herb is never used to signal an error.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hard Steps Rule",
+        "body": "Weights are 900, 800, 700, 500, 400 and nothing in between: 900 is reserved for the wordmark, 800 for section and item numbers, 700 for headings, prices, buttons, labels and addresses, 500 for dates, durations, roles and table heads, 400 for running text.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Rule",
+        "body": "Every numeral that is compared or read as an address (prices, phone numbers, dates, durations, 00–06, 01.1) uses tabular figures.",
+        "section": "typography"
+      },
+      {
+        "name": "The Print Rule",
+        "body": "Nothing casts a shadow and nothing is translucent. If an element needs to separate from the page, give it a colour field or a 2px rule.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Square Corner Rule",
+        "body": "Radius is 0 everywhere in the interface. There is no rounded variant.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** keep the section colour order fixed: 00 paper, 01 herb, 02 ink, 03 pomegranate, 04 saffron, 05 cobalt, 06 stone.",
+      "**Do** set dotted item addresses (01.1) in their own left column (44px on phones, 56px on desktop), tabular, 700, in the section colour or its legible on-board stand-in.",
+      "**Do** separate rows and blocks with 2px ink rules.",
+      "**Do** make every phone-call action herb, 56px tall, with the phone icon, deepening to herb-deep on hover.",
+      "**Do** use the paired on-colour for text on any colour field, and Burnt Saffron (on-saffron-2) or Stone Shadow (on-stone-2) instead of saffron or stone for text on paper.",
+      "**Do** open every section page and item page with the Section Band as its h1; item pages set the dotted address at scale and a crumb back to the section.",
+      "**Do** render an optional spec row only when its data exists, and tell the visitor to ask by phone when a needed fact is missing.",
+      "**Do** announce sample data with the pomegranate notice and flag a sample portrait \"Namuna ma'lumot\".",
+      "**Do** give each sheet one photographic plate with a caption beneath it saying what the image is.",
+      "**Do** use tabular figures for prices, phones, dates, durations and addresses.",
+      "**Do** remove the sweep under prefers-reduced-motion and fall back to plain navigation."
+    ],
+    "donts": [
+      "**Don't** round any corner; radius is 0 everywhere.",
+      "**Don't** add shadows, gradients or translucent layers.",
+      "**Don't** place dotted addresses or other small labels as eyebrows above headings.",
+      "**Don't** use a section's colour outside that section's own band, address, strip cell, menu row, quick-link cell, sweep or CTA (the herb call action, pomegranate as the warning colour, cobalt as the focus colour and saffron as the selection colour are the exceptions).",
+      "**Don't** set the logo mark on a pomegranate, herb or other section colour field; it sits on paper and ink only.",
+      "**Don't** set saffron or stone as text on paper.",
+      "**Don't** lighten a section colour into a tint; section fields use the strong colour itself.",
+      "**Don't** introduce a second typeface or weights between the hard steps (900, 800, 700, 500, 400).",
+      "**Don't** build the clinic template: a split hero with a smiling doctor, equal service cards, a stats row or testimonials."
+    ]
+  }
+}

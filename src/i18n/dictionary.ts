@@ -1,0 +1,267 @@
+
+/** Interface copy. Content (services, courses, products...) lives in src/data. */
+export const dictionary = {
+  wordmark: { uz: "TABOBAT", ru: "TABOBAT", en: "TABOBAT" },
+  /** The centre's official name, as set in its logo; ru/en translations approved by the centre's side. */
+  officialName: {
+    uz: "Respublika xalq tabobati ilmiy-amaliy markazi",
+    ru: "Республиканский научно-практический центр народной медицины",
+    en: "Republican Scientific and Practical Centre of Folk Medicine",
+  },
+  headline: {
+    uz: "Sharq tabobati — zamonaviy klinikada.",
+    ru: "Восточная медицина — в современной клинике.",
+    en: "Eastern medicine, in a modern clinic.",
+  },
+  lede: {
+    uz: "Davolash, ta'lim va fitobar bir joyda. Narxlar ochiq, muddatlar aniq.",
+    ru: "Лечение, обучение и фитобар в одном месте. Цены открыты, сроки понятны.",
+    en: "Treatment, training and a herbal bar under one roof. Prices in the open, terms made clear.",
+  },
+  call: { uz: "Qo'ng'iroq qilish", ru: "Позвонить", en: "Call us" },
+  courses: { uz: "Kurslar", ru: "Курсы", en: "Courses" },
+  menu: { uz: "Menyu", ru: "Меню", en: "Menu" },
+  closeMenu: { uz: "Menyuni yopish", ru: "Закрыть меню", en: "Close menu" },
+  language: { uz: "Til", ru: "Язык", en: "Language" },
+  heroCaption: {
+    uz: "Markaz konsepti · vizualizatsiya",
+    ru: "Концепция центра · визуализация",
+    en: "Centre concept · visualisation",
+  },
+  conceptCaption: {
+    uz: "Konsept vizualizatsiya",
+    ru: "Концептуальная визуализация",
+    en: "Concept visualisation",
+  },
+  rangeFacts: {
+    services: {
+      uz: (n: number, from: string) => `${n} · ${from}dan`,
+      ru: (n: number, from: string) => `${n} · от ${from}`,
+      en: (n: number, from: string) => `${n} · from ${from}`,
+    },
+    news: {
+      uz: (n: number) => `${n} maqola`,
+      ru: (n: number) => `${n} статьи`,
+      en: (n: number) => `${n} articles`,
+    },
+    tabibs: {
+      uz: (n: number) => `${n} tabib`,
+      ru: (n: number) => `${n} табиба`,
+      en: (n: number) => `${n} tabibs`,
+    },
+    fitobar: {
+      uz: (n: number) => `${n} mahsulot`,
+      ru: (n: number) => `${n} продуктов`,
+      en: (n: number) => `${n} products`,
+    },
+    education: {
+      uz: (n: number, span: string) => `${n} kurs · ${span}`,
+      ru: (n: number, span: string) => `${n} курсов · ${span}`,
+      en: (n: number, span: string) => `${n} courses · ${span}`,
+    },
+  },
+  servicesLede: {
+    uz: "Muolajalar va ularning narxlari. Qabulga telefon orqali yoziling.",
+    ru: "Процедуры и цены на них. Запись на приём — по телефону.",
+    en: "Treatments and their prices. Book a visit by phone.",
+  },
+  allServices: { uz: "Barcha xizmatlar", ru: "Все услуги", en: "All services" },
+  details: { uz: "Batafsil", ru: "Подробнее", en: "Details" },
+  otherServices: { uz: "Boshqa xizmatlar", ru: "Другие услуги", en: "Other services" },
+  leaflet: {
+    duration: { uz: "Davomiyligi", ru: "Длительность", en: "Duration" },
+    indications: { uz: "Kimlar uchun", ru: "Показания", en: "Who it is for" },
+    contraindications: { uz: "Qarshi ko'rsatmalar", ru: "Противопоказания", en: "Contraindications" },
+    preparation: { uz: "Tayyorgarlik", ru: "Подготовка", en: "Preparation" },
+    booking: { uz: "Yozilish", ru: "Запись", en: "Booking" },
+    byPhone: { uz: "Telefon orqali", ru: "По телефону", en: "By phone" },
+    howToBook: { uz: "Qanday yozilish", ru: "Как записаться", en: "How to book" },
+    bookingText: {
+      uz: "Qabulga yozilish uchun markazga qo'ng'iroq qiling yoki manzilga keling.",
+      ru: "Чтобы записаться, позвоните в центр или приходите по адресу.",
+      en: "To book, call the centre or come to the address.",
+    },
+    askByPhone: {
+      uz: "Davomiyligi va qarshi ko'rsatmalar haqida qo'ng'iroq qilib so'rang.",
+      ru: "О длительности и противопоказаниях уточните по телефону.",
+      en: "Ask by phone about duration and contraindications.",
+    },
+  },
+  servicesCta: {
+    uz: "Qabulga yozilish",
+    ru: "Записаться на приём",
+    en: "Book a visit",
+  },
+  priceFrom: { uz: "Narx", ru: "Цена", en: "Price" },
+  newsLede: {
+    uz: "Markaz hayotidan so'nggi xabarlar.",
+    ru: "Последние новости из жизни центра.",
+    en: "The latest from the centre.",
+  },
+  allNews: { uz: "Barcha yangiliklar", ru: "Все новости", en: "All news" },
+  otherNews: { uz: "Boshqa yangiliklar", ru: "Другие новости", en: "More news" },
+  readArticle: { uz: "O'qish", ru: "Читать", en: "Read" },
+  emptyNews: {
+    title: { uz: "Hozircha yangiliklar yo'q", ru: "Пока новостей нет", en: "No news yet" },
+    text: {
+      uz: "Markaz hayotini Telegram va Instagramda kuzatib boring.",
+      ru: "Следите за жизнью центра в Telegram и Instagram.",
+      en: "Follow the centre on Telegram and Instagram.",
+    },
+  },
+  tabibsLede: {
+    uz: "Sizni qabul qiladigan mutaxassislar.",
+    ru: "Специалисты, которые вас примут.",
+    en: "The specialists who will see you.",
+  },
+  allTabibs: { uz: "Barcha tabiblar", ru: "Все табибы", en: "All tabibs" },
+  otherTabibs: { uz: "Boshqa tabiblar", ru: "Другие табибы", en: "Other tabibs" },
+  tabibSpec: {
+    specialty: { uz: "Mutaxassislik", ru: "Специализация", en: "Specialty" },
+    experience: { uz: "Tajriba", ru: "Опыт", en: "Experience" },
+    education: { uz: "Ta'lim", ru: "Образование", en: "Education" },
+    schedule: { uz: "Qabul vaqti", ru: "Часы приёма", en: "Hours" },
+    services: { uz: "Xizmatlari", ru: "Услуги", en: "Services" },
+  },
+  mockNotice: {
+    uz: "Bu sahifadagi tabiblar, ularning ismlari va suratlari vaqtinchalik. Haqiqiy jamoa tez orada tanishtiriladi.",
+    ru: "Табибы на этой странице, их имена и фотографии временные. Настоящую команду представим скоро.",
+    en: "The tabibs on this page, their names and photos are placeholders. The real team will be introduced soon.",
+  },
+  mockLabel: {
+    uz: "Namuna ma'lumot",
+    ru: "Пример данных",
+    en: "Sample data",
+  },
+  fitobarLede: {
+    uz: "Dorivor choylar, yog'lar va tabiiy mahsulotlar. Buyurtma telefon orqali.",
+    ru: "Лечебные чаи, масла и натуральные продукты. Заказ по телефону.",
+    en: "Medicinal teas, oils and natural products. Order by phone.",
+  },
+  fitobarCta: {
+    uz: "Buyurtma berish",
+    ru: "Заказать",
+    en: "Place an order",
+  },
+  productsCaption: {
+    uz: "Mahsulot tasvirlari konsept vizualizatsiya; qadoq va ko'rinish farq qilishi mumkin.",
+    ru: "Изображения продуктов — концептуальная визуализация; упаковка и вид могут отличаться.",
+    en: "Product images are concept visualisations; packaging and appearance may differ.",
+  },
+  allProducts: { uz: "Barcha mahsulotlar", ru: "Все продукты", en: "All products" },
+  order: { uz: "Buyurtma", ru: "Заказать", en: "Order" },
+  productSpec: {
+    size: { uz: "Hajmi", ru: "Объём", en: "Size" },
+    ingredients: { uz: "Tarkibi", ru: "Состав", en: "Ingredients" },
+    usage: { uz: "Qo'llash", ru: "Применение", en: "How to use" },
+  },
+  howToOrder: { uz: "Qanday buyurtma berish", ru: "Как заказать", en: "How to order" },
+  orderText: {
+    uz: "Mahsulotni tanlang va markazga qo'ng'iroq qiling. Hajmi, tarkibi va mavjudligini telefon orqali aniqlashtiring.",
+    ru: "Выберите продукт и позвоните в центр. Объём, состав и наличие уточняйте по телефону.",
+    en: "Choose a product and call the centre. Ask by phone about size, ingredients and availability.",
+  },
+  educationLede: {
+    uz: "Xalq tabobatini o'rganing: talablar, muddat va narx har bir kurs uchun ochiq.",
+    ru: "Изучайте народную медицину: требования, сроки и цена открыты для каждого курса.",
+    en: "Learn folk medicine: requirements, duration and price are open for every course.",
+  },
+  table: {
+    course: { uz: "Kurs", ru: "Курс", en: "Course" },
+    duration: { uz: "Muddat", ru: "Срок", en: "Duration" },
+    requirements: { uz: "Talab", ru: "Требования", en: "Requirements" },
+    price: { uz: "Narx", ru: "Цена", en: "Price" },
+  },
+  allCourses: { uz: "Barcha kurslar", ru: "Все курсы", en: "All courses" },
+  otherCourses: { uz: "Boshqa kurslar", ru: "Другие курсы", en: "Other courses" },
+  apply: { uz: "Yozilish", ru: "Записаться", en: "Apply" },
+  courseSpec: {
+    start: { uz: "Boshlanishi", ru: "Начало", en: "Starts" },
+    schedule: { uz: "Jadval", ru: "Расписание", en: "Schedule" },
+    certificate: { uz: "Sertifikat", ru: "Сертификат", en: "Certificate" },
+    askStart: {
+      uz: "Keyingi guruh qachon boshlanishini qo'ng'iroq qilib so'rang.",
+      ru: "Когда стартует следующая группа, уточните по телефону.",
+      en: "Ask by phone when the next group starts.",
+    },
+  },
+  form: {
+    title: { uz: "Kursga ariza", ru: "Заявка на курс", en: "Apply for a course" },
+    lede: {
+      uz: "Ism va telefon raqamingizni qoldiring, markaz siz bilan bog'lanadi.",
+      ru: "Оставьте имя и телефон, центр свяжется с вами.",
+      en: "Leave your name and phone number and the centre will get back to you.",
+    },
+    course: { uz: "Kurs", ru: "Курс", en: "Course" },
+    chooseCourse: { uz: "Kursni tanlang", ru: "Выберите курс", en: "Choose a course" },
+    name: { uz: "Ism", ru: "Имя", en: "Name" },
+    phone: { uz: "Telefon", ru: "Телефон", en: "Phone" },
+    note: { uz: "Izoh (ixtiyoriy)", ru: "Комментарий (необязательно)", en: "Note (optional)" },
+    submit: { uz: "Ariza yuborish", ru: "Отправить заявку", en: "Send application" },
+    sending: { uz: "Yuborilmoqda…", ru: "Отправляем…", en: "Sending…" },
+    errors: {
+      name: {
+        uz: "Ismingizni yozing (kamida 2 harf).",
+        ru: "Укажите имя (не короче 2 букв).",
+        en: "Enter your name (at least 2 letters).",
+      },
+      phone: {
+        uz: "Telefon raqamini to'liq yozing, masalan +998 90 123 45 67.",
+        ru: "Укажите номер полностью, например +998 90 123 45 67.",
+        en: "Enter the full number, for example +998 90 123 45 67.",
+      },
+      course: { uz: "Kursni tanlang.", ru: "Выберите курс.", en: "Choose a course." },
+    },
+    successTitle: { uz: "Ariza yuborildi", ru: "Заявка отправлена", en: "Application sent" },
+    successText: {
+      uz: "Rahmat. Markaz ko'rsatilgan raqamga qo'ng'iroq qiladi.",
+      ru: "Спасибо. Центр позвонит по указанному номеру.",
+      en: "Thank you. The centre will call the number you gave.",
+    },
+    another: { uz: "Yana ariza yuborish", ru: "Отправить ещё одну", en: "Send another" },
+    failTitle: {
+      uz: "Ariza yuborilmadi",
+      ru: "Заявка не отправилась",
+      en: "The application did not go through",
+    },
+    failText: {
+      uz: "Hozir onlayn ariza qabul qilinmayapti. Kursga yozilish uchun qo'ng'iroq qiling:",
+      ru: "Сейчас онлайн-заявки не принимаются. Чтобы записаться, позвоните:",
+      en: "Online applications are not going through right now. To apply, call:",
+    },
+    retry: { uz: "Qayta urinish", ru: "Попробовать снова", en: "Try again" },
+  },
+  contactsLede: {
+    uz: "Qo'ng'iroq qiling yoki markazga keling.",
+    ru: "Позвоните или приходите в центр.",
+    en: "Call us or visit the centre.",
+  },
+  address: { uz: "Manzil", ru: "Адрес", en: "Address" },
+  hours: { uz: "Ish vaqti", ru: "Часы работы", en: "Opening hours" },
+  askHours: {
+    uz: "Ish vaqtini qo'ng'iroq qilib aniqlang.",
+    ru: "Часы работы уточняйте по телефону.",
+    en: "Please call to check opening hours.",
+  },
+  directions: { uz: "Yo'nalish olish", ru: "Проложить маршрут", en: "Get directions" },
+  quickLinks: { uz: "Tezkor havolalar", ru: "Быстрые ссылки", en: "Quick links" },
+  phones: { uz: "Telefonlar", ru: "Телефоны", en: "Phones" },
+  social: { uz: "Ijtimoiy tarmoqlar", ru: "Соцсети", en: "Social" },
+  mapTitle: {
+    uz: "Tabobat Markazi xaritada",
+    ru: "Tabobat Markazi на карте",
+    en: "Tabobat Markazi on the map",
+  },
+  rights: {
+    uz: "Tabobat Markazi, Toshkent",
+    ru: "Tabobat Markazi, Ташкент",
+    en: "Tabobat Markazi, Tashkent",
+  },
+  imageNote: {
+    uz: "Saytdagi tasvirlar konsept vizualizatsiyalar; markazning haqiqiy suratlari tez orada.",
+    ru: "Изображения на сайте — концептуальные визуализации; настоящие фото центра скоро.",
+    en: "Images on this site are concept visualisations; real photographs of the centre are coming.",
+  },
+} satisfies Record<string, unknown>;
+
+export type Dictionary = typeof dictionary;

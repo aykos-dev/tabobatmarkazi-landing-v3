@@ -1,0 +1,32 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Herbarium sketch</title>
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1440px;height:900px;background:#DCDAD2;font-family:"Courier New",monospace;color:#22261F;overflow:hidden;padding:28px}
+.sheet{background:#F2F1EC;height:100%;display:grid;grid-template-columns:1.1fr 1fr;box-shadow:0 1px 0 #bbb}
+.nav{grid-column:1/-1;display:flex;justify-content:space-between;padding:18px 40px;font-size:15px;border-bottom:1px dashed #9a9a90}
+.spec{position:relative;padding:40px}
+.stem{position:absolute;left:120px;top:60px;width:6px;height:560px;background:#3E5B2E;transform:rotate(-8deg)}
+.leaf{position:absolute;width:120px;height:46px;background:#3E5B2E;border-radius:0 100% 0 100%}
+.label{position:absolute;right:40px;bottom:40px;width:440px;background:#fff;border:1px solid #22261F;padding:22px}
+.label h1{font:700 44px/1.05 "Courier New";margin:10px 0}
+.stamp{position:absolute;right:70px;bottom:250px;border:3px solid #5B4B8A;color:#5B4B8A;border-radius:50%;width:150px;height:150px;display:grid;place-items:center;font-weight:700;text-align:center;transform:rotate(-12deg)}
+.reg{padding:40px;border-left:1px dashed #9a9a90}
+.reg h2{font-size:14px;letter-spacing:.2em;margin-bottom:16px}
+.row{display:grid;grid-template-columns:60px 1fr 110px 140px;padding:14px 0;border-bottom:1px solid #c9c7bd;font-size:18px}
+.btn{margin-top:28px;background:#3E5B2E;color:#fff;padding:18px;text-align:center;font-size:20px;font-weight:700}
+</style></head><body><div class="sheet">
+<div class="nav"><span>TABOBAT MARKAZI</span><span>Ta'lim  Muolaja  Fitobar  Tabiblar  Yangiliklar</span><span>UZ RU EN</span></div>
+<div class="spec"><div class="stem"></div>
+<div class="leaf" style="left:150px;top:120px"></div><div class="leaf" style="left:20px;top:220px;transform:scaleX(-1)"></div><div class="leaf" style="left:160px;top:330px"></div><div class="leaf" style="left:30px;top:430px;transform:scaleX(-1)"></div>
+<div class="stamp">RXTIAM<br>TA'LIM</div>
+<div class="label"><small>Respublika Xalq Tabobati Ilmiy-Amaliy Markazi</small><h1>Tabobatni ilmiy asosda o'rganing</h1><small>Toshkent · Farobiy 2</small></div></div>
+<div class="reg"><h2>KURSLAR REYESTRI</h2>
+<div class="row"><b>01</b><span>Fitoterapiya asoslari</span><span>8 hafta</span><span>1 200 000</span></div>
+<div class="row"><b>02</b><span>Hijoma amaliyoti</span><span>6 hafta</span><span>1 800 000</span></div>
+<div class="row"><b>03</b><span>Aromaterapiya va moylar</span><span>5 hafta</span><span>1 000 000</span></div>
+<div class="row"><b>04</b><span>Islom tibbiyoti tarixi</span><span>4 hafta</span><span>800 000</span></div>
+<div class="row"><b>05</b><span>Massaj terapiyasi</span><span>7 hafta</span><span>1 500 000</span></div>
+<div class="row"><b>06</b><span>Dorixona va retseptura</span><span>10 hafta</span><span>2 000 000</span></div>
+<div class="btn">Ariza yuborish →</div></div>
+</div></body></html>
