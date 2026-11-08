@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { Markdown } from "@/components/Markdown";
 import { SiteShell } from "@/components/SiteShell";
-import { getArticle, latestNews, news } from "@/data/news";
+import { getArticle, latestNews } from "@/data/news";
 import { getSection, sectionHref } from "@/data/sections";
 import { dictionary as d } from "@/i18n/dictionary";
 import { formatDate } from "@/lib/format";
@@ -13,11 +14,13 @@ import { isLocale, locales, localize, type Locale } from "@/lib/i18n";
 
 const section = getSection("news");
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const news = await latestNews();
   return locales.flatMap((lang) => news.map((article) => ({ lang, slug: article.slug })));
 }
 
-export const dynamicParams = false;
+// Articles published in the admin after a build render on first visit.
+export const dynamicParams = true;
 
 export async function generateMetadata({
   params,
@@ -25,7 +28,7 @@ export async function generateMetadata({
   params: Promise<{ lang: string; slug: string }>;
 }): Promise<Metadata> {
   const { lang, slug } = await params;
-  const article = getArticle(slug);
+  const article = await getArticle(slug);
   if (!isLocale(lang) || !article) return {};
   return {
     title: `${localize(article.title, lang)} — Tabobat Markazi`,
@@ -41,10 +44,10 @@ export default async function ArticlePage({
   params: Promise<{ lang: string; slug: string }>;
 }) {
   const { lang, slug } = await params;
-  const article = getArticle(slug);
+  const [article, news] = await Promise.all([getArticle(slug), latestNews()]);
   if (!isLocale(lang) || !article) notFound();
   const pick = <T,>(value: Record<Locale, T>) => localize(value, lang);
-  const others = latestNews().filter((other) => other.slug !== article.slug);
+  const others = news.filter((other) => other.slug !== article.slug);
 
   return (
     <SiteShell lang={lang} current="news">
@@ -98,11 +101,9 @@ export default async function ArticlePage({
           </figure>
 
           <div className="mt-8 md:mt-14 md:grid md:grid-cols-12 md:gap-x-6">
-            <div className="max-w-[65ch] space-y-5 text-lg leading-relaxed md:col-span-7 md:col-start-4 md:text-xl md:leading-relaxed">
-              {pick(article.body).map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
-            </div>
+            <Markdown className="max-w-[65ch] space-y-5 text-lg leading-relaxed md:col-span-7 md:col-start-4 md:text-xl md:leading-relaxed">
+              {pick(article.body)}
+            </Markdown>
           </div>
         </div>
       </article>

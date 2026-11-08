@@ -5,23 +5,23 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { CallButton } from "@/components/CallButton";
-import { MockNotice } from "@/components/MockNotice";
 import { SectionBand } from "@/components/SectionBand";
 import { SiteShell } from "@/components/SiteShell";
 import { getSection, sectionHref } from "@/data/sections";
-import { getService } from "@/data/services";
-import { getTabib, tabibs } from "@/data/tabibs";
+import { getTabib, getTabibs } from "@/data/tabibs";
 import { dictionary as d } from "@/i18n/dictionary";
 import { isLocale, locales, localize, type Locale, type Localized } from "@/lib/i18n";
 
 const section = getSection("tabibs");
 const services = getSection("services");
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const tabibs = await getTabibs();
   return locales.flatMap((lang) => tabibs.map((tabib) => ({ lang, slug: tabib.id })));
 }
 
-export const dynamicParams = false;
+// Tabibs published in the admin after a build render on first visit.
+export const dynamicParams = true;
 
 export async function generateMetadata({
   params,
@@ -29,12 +29,11 @@ export async function generateMetadata({
   params: Promise<{ lang: string; slug: string }>;
 }): Promise<Metadata> {
   const { lang, slug } = await params;
-  const tabib = getTabib(slug);
+  const tabib = await getTabib(slug);
   if (!isLocale(lang) || !tabib) return {};
   return {
     title: `${localize(tabib.name, lang)} — Tabobat Markazi`,
     description: localize(tabib.role, lang),
-    robots: tabib.mock ? { index: false } : undefined,
   };
 }
 
@@ -44,13 +43,14 @@ export default async function TabibPage({
   params: Promise<{ lang: string; slug: string }>;
 }) {
   const { lang, slug } = await params;
-  const tabib = getTabib(slug);
+  const [tabib, tabibs] = await Promise.all([getTabib(slug), getTabibs()]);
   if (!isLocale(lang) || !tabib) notFound();
   const pick = <T,>(value: Record<Locale, T>) => localize(value, lang);
 
-  const index = tabibs.indexOf(tabib);
+  const position = (id: string) => Math.max(0, tabibs.findIndex((other) => other.id === id));
+  const index = position(tabib.id);
   const others = tabibs.filter((other) => other.id !== tabib.id);
-  const performs = (tabib.services ?? []).map(getService).filter((service) => service !== undefined);
+  const performs = tabib.services;
 
   const spec = (
     [
@@ -76,12 +76,6 @@ export default async function TabibPage({
           </Link>
         }
       >
-        {tabib.mock && (
-          <div className="mb-8 md:mb-12">
-            <MockNotice label={pick(d.mockLabel)} text={pick(d.mockNotice)} />
-          </div>
-        )}
-
         <div className="grid gap-10 md:grid-cols-12 md:gap-x-6">
           <figure className="md:col-span-5">
             <div className="relative aspect-[4/5] overflow-hidden bg-stone">
@@ -90,15 +84,9 @@ export default async function TabibPage({
                 alt={pick(tabib.name)}
                 fill
                 priority
-                placeholder="blur"
                 sizes="(min-width: 768px) 40vw, 100vw"
                 className="object-cover"
               />
-              {tabib.mock && (
-                <span className="absolute top-0 left-0 bg-pomegranate px-2.5 py-1 text-xs font-bold text-on-pomegranate">
-                  {pick(d.mockLabel)}
-                </span>
-              )}
             </div>
           </figure>
 
@@ -141,11 +129,11 @@ export default async function TabibPage({
             {others.map((other) => (
               <li key={other.id} className="group relative grid grid-cols-[5.5rem_1fr_auto] items-center gap-4 border-t-2 border-ink pt-4 md:grid-cols-[7rem_1fr_auto]">
                 <div className="relative aspect-[4/5] overflow-hidden bg-stone">
-                  <Image src={other.image} alt="" fill placeholder="blur" sizes="7rem" className="object-cover" />
+                  <Image src={other.image} alt="" fill sizes="7rem" className="object-cover" />
                 </div>
                 <div>
                   <span className="tabular text-sm font-bold text-pomegranate">
-                    {section.number}.{tabibs.indexOf(other) + 1}
+                    {section.number}.{position(other.id) + 1}
                   </span>
                   <h3 className="mt-0.5 text-lg leading-tight font-bold md:text-2xl">
                     <Link

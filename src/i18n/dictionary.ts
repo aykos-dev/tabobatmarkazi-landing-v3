@@ -123,16 +123,13 @@ export const dictionary = {
     schedule: { uz: "Qabul vaqti", ru: "Часы приёма", en: "Hours" },
     services: { uz: "Xizmatlari", ru: "Услуги", en: "Services" },
   },
-  mockNotice: {
-    uz: "Bu sahifadagi tabiblar, ularning ismlari va suratlari vaqtinchalik. Haqiqiy jamoa tez orada tanishtiriladi.",
-    ru: "Табибы на этой странице, их имена и фотографии временные. Настоящую команду представим скоро.",
-    en: "The tabibs on this page, their names and photos are placeholders. The real team will be introduced soon.",
+  emptyTabibs: {
+    uz: "Jamoamiz bilan tez orada tanishtiramiz. Qabulga telefon orqali yozilishingiz mumkin.",
+    ru: "Скоро познакомим вас с нашей командой. Записаться на приём можно по телефону.",
+    en: "We will introduce our team soon. You can book a visit by phone.",
   },
-  mockLabel: {
-    uz: "Namuna ma'lumot",
-    ru: "Пример данных",
-    en: "Sample data",
-  },
+  teachers: { uz: "O'qituvchilar", ru: "Преподаватели", en: "Teachers" },
+  uncategorized: { uz: "Boshqa mahsulotlar", ru: "Другие товары", en: "Other products" },
   fitobarLede: {
     uz: "Dorivor choylar, yog'lar va tabiiy mahsulotlar. Buyurtma telefon orqali.",
     ru: "Лечебные чаи, масла и натуральные продукты. Заказ по телефону.",

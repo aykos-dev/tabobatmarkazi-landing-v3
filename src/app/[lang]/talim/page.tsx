@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { ApplyForm, ApplyLink } from "@/components/ApplyForm";
 import { SectionBand } from "@/components/SectionBand";
 import { SiteShell } from "@/components/SiteShell";
-import { courses } from "@/data/courses";
+import { getCourses } from "@/data/courses";
 import { getSection } from "@/data/sections";
 import { dictionary as d } from "@/i18n/dictionary";
 import { isLocale, localize, type Locale } from "@/lib/i18n";
@@ -31,6 +31,7 @@ export default async function EducationPage({ params }: { params: Promise<{ lang
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const pick = <T,>(value: Record<Locale, T>) => localize(value, lang);
+  const courses = await getCourses();
 
   return (
     <SiteShell lang={lang} current="education">

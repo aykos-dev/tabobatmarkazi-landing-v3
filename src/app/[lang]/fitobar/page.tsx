@@ -7,7 +7,7 @@ import { CallButton } from "@/components/CallButton";
 import { SectionBand } from "@/components/SectionBand";
 import { SiteShell } from "@/components/SiteShell";
 import { contact } from "@/data/contact";
-import { products } from "@/data/products";
+import { getProductCategories, getProducts, type Product } from "@/data/products";
 import { getSection, sectionHref } from "@/data/sections";
 import { dictionary as d } from "@/i18n/dictionary";
 import { isLocale, localize, type Locale, type Localized } from "@/lib/i18n";
@@ -32,6 +32,24 @@ export default async function FitobarPage({ params }: { params: Promise<{ lang: 
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const pick = <T,>(value: Record<Locale, T>) => localize(value, lang);
+  const [products, categories] = await Promise.all([getProducts(), getProductCategories()]);
+
+  // Shelves by category, in the admin's category order; products without one come last.
+  // With no categories at all the page keeps a single, untitled shelf.
+  const shelves: { key: string; title?: string; items: Product[] }[] = categories
+    .map((category) => ({
+      key: category.slug,
+      title: pick(category.name),
+      items: products.filter((product) => product.category?.slug === category.slug),
+    }))
+    .filter((shelf) => shelf.items.length > 0);
+  const loose = products.filter(
+    (product) => !product.category || !shelves.some((shelf) => shelf.key === product.category?.slug),
+  );
+  if (loose.length) {
+    shelves.push({ key: "other", title: shelves.length ? pick(d.uncategorized) : undefined, items: loose });
+  }
+  const number = (product: Product) => products.indexOf(product) + 1;
 
   return (
     <SiteShell lang={lang} current="fitobar">
@@ -54,9 +72,16 @@ export default async function FitobarPage({ params }: { params: Promise<{ lang: 
           <figcaption className="mt-2 text-xs text-ink-3">{pick(d.conceptCaption)}</figcaption>
         </figure>
 
-        {/* The shelf: every product with its address, terms and a way to order */}
+        {/* The shelves: every product with its address, terms and a way to order */}
+        {shelves.map((shelf) => (
+        <section key={shelf.key} aria-label={shelf.title} className="mt-12 first:mt-0 md:mt-20">
+        {shelf.title && (
+          <h2 className="mb-6 border-t-2 border-ink pt-4 text-3xl font-bold tracking-[-0.02em] md:mb-10 md:text-5xl">
+            {shelf.title}
+          </h2>
+        )}
         <ol className="grid gap-y-12 md:grid-cols-3 md:gap-x-6 md:gap-y-16">
-          {products.map((product, index) => {
+          {shelf.items.map((product) => {
             const spec = (
               [
                 [d.productSpec.size, product.size],
@@ -78,10 +103,10 @@ export default async function FitobarPage({ params }: { params: Promise<{ lang: 
                 </div>
                 <div className="mt-4 grid flex-1 grid-cols-[2.75rem_1fr] border-t-2 border-ink pt-3">
                   <span className="tabular pt-1 text-sm font-bold text-on-saffron-2">
-                    {section.number}.{index + 1}
+                    {section.number}.{number(product)}
                   </span>
                   <div className="flex flex-col">
-                    <h2 className="text-2xl leading-tight font-bold tracking-[-0.02em]">{pick(product.title)}</h2>
+                    <h3 className="text-2xl leading-tight font-bold tracking-[-0.02em]">{pick(product.title)}</h3>
                     <p className="mt-2 max-w-[48ch] leading-snug text-ink-2">{pick(product.description)}</p>
                     {spec.length > 0 && (
                       <dl className="mt-3 grid gap-1 text-sm">
@@ -110,6 +135,8 @@ export default async function FitobarPage({ params }: { params: Promise<{ lang: 
             );
           })}
         </ol>
+        </section>
+        ))}
         <p className="mt-8 text-xs text-ink-3">{pick(d.productsCaption)}</p>
 
         <div className="mt-12 grid gap-6 md:mt-20 md:grid-cols-12 md:gap-x-6">

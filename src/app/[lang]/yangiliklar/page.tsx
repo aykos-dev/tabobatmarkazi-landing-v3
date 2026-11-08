@@ -32,7 +32,7 @@ export default async function NewsPage({ params }: { params: Promise<{ lang: str
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const pick = <T,>(value: Record<Locale, T>) => localize(value, lang);
-  const [lead, ...rest] = latestNews();
+  const [lead, ...rest] = await latestNews();
   const href = (slug: string) => `/${lang}/${section.slug}/${slug}`;
 
   return (

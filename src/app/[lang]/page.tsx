@@ -8,12 +8,12 @@ import { SectionBand } from "@/components/SectionBand";
 import { CallButton } from "@/components/CallButton";
 import { SiteShell } from "@/components/SiteShell";
 import { contact } from "@/data/contact";
-import { courses } from "@/data/courses";
-import { latestNews, news } from "@/data/news";
-import { products } from "@/data/products";
+import { getCourses } from "@/data/courses";
+import { latestNews } from "@/data/news";
+import { getProducts } from "@/data/products";
 import { sectionHref, sections } from "@/data/sections";
-import { services } from "@/data/services";
-import { tabibs } from "@/data/tabibs";
+import { getServices } from "@/data/services";
+import { getTabibs } from "@/data/tabibs";
 import { dictionary as d } from "@/i18n/dictionary";
 import { cheapest, formatDate, leadingNumber } from "@/lib/format";
 import { isLocale, localize, type Locale } from "@/lib/i18n";
@@ -29,21 +29,41 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     (typeof sections)[number]
   >;
 
-  const lowestService = cheapest(services, (service) => service.price.uz);
-  const weeks = courses.map((course) => leadingNumber(course.duration.uz));
+  const [services, news, tabibs, products, courses] = await Promise.all([
+    getServices(),
+    latestNews(),
+    getTabibs(),
+    getProducts(),
+    getCourses(),
+  ]);
+
+  const lowestService = cheapest(services, (service) => service.priceAmount);
+  const weeks = courses.map((course) => leadingNumber(course.duration.uz)).filter(Number.isFinite);
   const weekUnit = pick({ uz: "hafta", ru: "нед.", en: "weeks" });
-  const courseSpan = `${Math.min(...weeks)}–${Math.max(...weeks)} ${weekUnit}`;
+  const courseSpan = !weeks.length
+    ? ""
+    : Math.min(...weeks) === Math.max(...weeks)
+      ? `${weeks[0]} ${weekUnit}`
+      : `${Math.min(...weeks)}–${Math.max(...weeks)} ${weekUnit}`;
 
   const rangeItems = [
-    { section: s.services, fact: pick(d.rangeFacts.services)(services.length, pick(lowestService.price)) },
+    {
+      section: s.services,
+      fact: lowestService
+        ? pick(d.rangeFacts.services)(services.length, pick(lowestService.price))
+        : String(services.length),
+    },
     { section: s.news, fact: pick(d.rangeFacts.news)(news.length) },
     { section: s.tabibs, fact: pick(d.rangeFacts.tabibs)(tabibs.length) },
     { section: s.fitobar, fact: pick(d.rangeFacts.fitobar)(products.length) },
-    { section: s.education, fact: pick(d.rangeFacts.education)(courses.length, courseSpan) },
+    {
+      section: s.education,
+      fact: courseSpan ? pick(d.rangeFacts.education)(courses.length, courseSpan) : String(courses.length),
+    },
     { section: s.contacts, fact: "Farobiy 2" },
   ].map((item) => ({ ...item, title: pick(item.section.title), href: sectionHref(item.section, lang) }));
 
-  const [leadArticle, ...moreArticles] = latestNews();
+  const [leadArticle, ...moreArticles] = news;
 
   return (
     <SiteShell lang={lang}>
@@ -177,6 +197,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
 
         {/* 02 — Yangiliklar */}
         <SectionBand section={s.news} title={pick(s.news.title)} lede={pick(d.newsLede)}>
+          {leadArticle ? (
           <div className="grid gap-8 md:grid-cols-12 md:gap-x-6">
             <article className="group relative grid gap-x-6 md:col-span-12 md:grid-cols-12">
               <figure className="md:col-span-7">
@@ -227,6 +248,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               ))}
             </ol>
           </div>
+          ) : (
+            <p className="max-w-[60ch] text-lg text-ink-2">{pick(d.emptyNews.title)}</p>
+          )}
           <Link
             href={sectionHref(s.news, lang)}
             className="group mt-8 inline-flex h-14 items-center gap-2 border-2 border-ink px-6 font-bold no-underline transition-colors duration-200 hover:bg-ink hover:text-paper"
@@ -238,6 +262,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
 
         {/* 03 — Tabiblar */}
         <SectionBand section={s.tabibs} title={pick(s.tabibs.title)} lede={pick(d.tabibsLede)}>
+          {tabibs.length === 0 && (
+            <p className="max-w-[60ch] text-lg leading-snug text-ink-2">{pick(d.emptyTabibs)}</p>
+          )}
           <ol className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
             {tabibs.map((tabib, index) => (
               <li key={tabib.id} className="group relative w-[78%] shrink-0 snap-start md:w-auto">
@@ -249,11 +276,6 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                     sizes="(min-width: 768px) 30vw, 78vw"
                     className="object-cover"
                   />
-                  {tabib.mock && (
-                    <span className="absolute top-0 left-0 bg-pomegranate px-2.5 py-1 text-xs font-bold text-on-pomegranate">
-                      {pick(d.mockLabel)}
-                    </span>
-                  )}
                 </div>
                 <div className="mt-3 grid grid-cols-[2.75rem_1fr] border-t-2 border-ink pt-3">
                   <span className="tabular pt-1 text-sm font-bold text-pomegranate">

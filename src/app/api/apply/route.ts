@@ -30,7 +30,13 @@ export async function POST(request: Request) {
   const courseId = typeof body.course === "string" ? body.course : "";
   const note = typeof body.note === "string" ? body.note.trim().slice(0, 1000) : "";
   const lang = typeof body.lang === "string" && isLocale(body.lang) ? body.lang : "uz";
-  const course = getCourse(courseId);
+  let course;
+  try {
+    course = courseId && /^[a-z0-9-]+$/.test(courseId) ? await getCourse(courseId) : undefined;
+  } catch {
+    // Content API unreachable: same "failed" outcome as a webhook outage.
+    return NextResponse.json({ error: "upstream" }, { status: 502 });
+  }
 
   const invalid: Field[] = [];
   if (name.length < 2 || name.length > 80) invalid.push("name");

@@ -9,7 +9,7 @@ import { SectionBand } from "@/components/SectionBand";
 import { SiteShell } from "@/components/SiteShell";
 import { contact } from "@/data/contact";
 import { getSection, sectionHref } from "@/data/sections";
-import { services } from "@/data/services";
+import { getServices } from "@/data/services";
 import { dictionary as d } from "@/i18n/dictionary";
 import { isLocale, localize, type Locale } from "@/lib/i18n";
 import { telHref } from "@/lib/links";
@@ -33,6 +33,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const pick = <T,>(value: Record<Locale, T>) => localize(value, lang);
+  const services = await getServices();
 
   return (
     <SiteShell lang={lang} current="services">

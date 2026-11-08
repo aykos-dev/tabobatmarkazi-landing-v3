@@ -5,11 +5,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { CallButton } from "@/components/CallButton";
-import { MockNotice } from "@/components/MockNotice";
 import { SectionBand } from "@/components/SectionBand";
 import { SiteShell } from "@/components/SiteShell";
 import { getSection } from "@/data/sections";
-import { tabibs } from "@/data/tabibs";
+import { getTabibs } from "@/data/tabibs";
 import { dictionary as d } from "@/i18n/dictionary";
 import { isLocale, localize, type Locale } from "@/lib/i18n";
 
@@ -25,8 +24,6 @@ export async function generateMetadata({
   return {
     title: `${localize(section.title, lang)} — Tabobat Markazi`,
     description: localize(d.tabibsLede, lang),
-    // Sample people stay out of search results until real ones replace them.
-    robots: tabibs.some((tabib) => tabib.mock) ? { index: false } : undefined,
   };
 }
 
@@ -34,15 +31,13 @@ export default async function TabibsPage({ params }: { params: Promise<{ lang: s
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const pick = <T,>(value: Record<Locale, T>) => localize(value, lang);
-  const hasMock = tabibs.some((tabib) => tabib.mock);
+  const tabibs = await getTabibs();
 
   return (
     <SiteShell lang={lang} current="tabibs">
       <SectionBand as="h1" section={section} title={pick(section.title)} lede={pick(d.tabibsLede)}>
-        {hasMock && (
-          <div className="mb-8 md:mb-12">
-            <MockNotice label={pick(d.mockLabel)} text={pick(d.mockNotice)} />
-          </div>
+        {tabibs.length === 0 && (
+          <p className="max-w-[60ch] text-lg leading-snug text-ink-2">{pick(d.emptyTabibs)}</p>
         )}
 
         <ol className="grid gap-y-12 md:grid-cols-3 md:gap-x-6">
@@ -53,15 +48,9 @@ export default async function TabibsPage({ params }: { params: Promise<{ lang: s
                   src={tabib.image}
                   alt={pick(tabib.name)}
                   fill
-                  placeholder="blur"
                   sizes="(min-width: 768px) 30vw, 100vw"
                   className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                 />
-                {tabib.mock && (
-                  <span className="absolute top-0 left-0 bg-pomegranate px-2.5 py-1 text-xs font-bold text-on-pomegranate">
-                    {pick(d.mockLabel)}
-                  </span>
-                )}
               </div>
               <div className="mt-4 grid flex-1 grid-cols-[2.75rem_1fr] border-t-2 border-ink pt-3">
                 <span className="tabular pt-1.5 text-sm font-bold text-pomegranate">

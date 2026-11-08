@@ -19,11 +19,13 @@ The Ta'lim form posts to `/api/apply`, which forwards each application as JSON t
 
 ## Content
 
-Text and prices live in `src/data/` (services, courses, products, news, tabibs, contacts) and `src/i18n/dictionary.ts`.
+Services, news, tabibs, Fitobar products (with categories) and courses are edited in the questionnaire admin under **Content** and served by the questionnaire backend at `CONTENT_API_URL` (`/public/<type>`). Pages are cached and refreshed on demand: after each admin edit the backend calls `/api/revalidate` with `REVALIDATE_SECRET`. Images come from the backend's object storage at `CONTENT_MEDIA_URL`. Set all three in `.env.local` (see `.env.example`). The API must be reachable during `npm run build`.
+
+Contacts, section names and interface text still live in `src/data/contact.ts`, `src/data/sections.ts` and `src/i18n/dictionary.ts`.
 
 Before launch:
 
-- **Tabibs:** the entries in `src/data/tabibs.ts` are sample data (`mock: true`), labelled as such on the site and kept out of search engines. Replace them with the real team.
+- **Tabibs:** the three seeded tabibs are placeholder people and start as drafts. Publish real practitioners from the admin.
 - **Images:** the images in `public/images/concept/` are concept visualisations, captioned as such. Replace them with real photographs.
 
 ## Design

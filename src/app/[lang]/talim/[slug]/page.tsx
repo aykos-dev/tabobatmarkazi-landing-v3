@@ -7,18 +7,21 @@ import { notFound } from "next/navigation";
 import { ApplyForm } from "@/components/ApplyForm";
 import { SectionBand } from "@/components/SectionBand";
 import { SiteShell } from "@/components/SiteShell";
-import { courses, getCourse } from "@/data/courses";
+import { getCourse, getCourses } from "@/data/courses";
 import { getSection, sectionHref } from "@/data/sections";
 import { dictionary as d } from "@/i18n/dictionary";
 import { isLocale, locales, localize, type Locale, type Localized } from "@/lib/i18n";
 
 const section = getSection("education");
+const tabibsSection = getSection("tabibs");
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const courses = await getCourses();
   return locales.flatMap((lang) => courses.map((course) => ({ lang, slug: course.id })));
 }
 
-export const dynamicParams = false;
+// Courses added in the admin after a build render on first visit.
+export const dynamicParams = true;
 
 export async function generateMetadata({
   params,
@@ -26,7 +29,7 @@ export async function generateMetadata({
   params: Promise<{ lang: string; slug: string }>;
 }): Promise<Metadata> {
   const { lang, slug } = await params;
-  const course = getCourse(slug);
+  const course = await getCourse(slug);
   if (!isLocale(lang) || !course) return {};
   return {
     title: `${localize(course.title, lang)} — Tabobat Markazi`,
@@ -40,11 +43,12 @@ export default async function CoursePage({
   params: Promise<{ lang: string; slug: string }>;
 }) {
   const { lang, slug } = await params;
-  const course = getCourse(slug);
+  const [course, courses] = await Promise.all([getCourse(slug), getCourses()]);
   if (!isLocale(lang) || !course) notFound();
   const pick = <T,>(value: Record<Locale, T>) => localize(value, lang);
 
-  const index = courses.indexOf(course);
+  const position = (id: string) => Math.max(0, courses.findIndex((other) => other.id === id));
+  const index = position(course.id);
   const others = courses.filter((other) => other.id !== course.id);
 
   // The spec table: always duration and price, then whatever the centre has supplied.
@@ -103,6 +107,30 @@ export default async function CoursePage({
                 <dt className="text-sm text-ink-2">{pick(d.table.requirements)}</dt>
                 <dd className="mt-1 text-lg leading-snug font-bold">{pick(course.requirements)}</dd>
               </div>
+              {course.teachers.length > 0 && (
+                <div className="border-b-2 border-ink py-4">
+                  <dt className="text-sm text-ink-2">{pick(d.teachers)}</dt>
+                  <dd className="mt-2 grid gap-3">
+                    {course.teachers.map((teacher) => (
+                      <Link
+                        key={teacher.id}
+                        href={`/${lang}/${tabibsSection.slug}/${teacher.id}`}
+                        className="group flex items-center gap-3 no-underline"
+                      >
+                        <span className="relative size-12 shrink-0 overflow-hidden bg-stone">
+                          <Image src={teacher.image} alt="" fill sizes="3rem" className="object-cover" />
+                        </span>
+                        <span>
+                          <span className="block text-lg leading-tight font-bold group-hover:underline">
+                            {pick(teacher.name)}
+                          </span>
+                          <span className="block text-sm text-ink-2">{pick(teacher.role)}</span>
+                        </span>
+                      </Link>
+                    ))}
+                  </dd>
+                </div>
+              )}
             </dl>
             {!course.start && (
               <p className="mt-4 text-sm leading-snug text-ink-2">{pick(d.courseSpec.askStart)}</p>
@@ -139,7 +167,7 @@ export default async function CoursePage({
                   className="group grid grid-cols-[2.75rem_1fr_auto] items-baseline gap-x-3 border-b-2 border-ink py-4 no-underline md:border-b-0 md:py-5"
                 >
                   <span className="tabular text-sm font-bold text-cobalt">
-                    {section.number}.{courses.indexOf(other) + 1}
+                    {section.number}.{position(other.id) + 1}
                   </span>
                   <span>
                     <span className="block text-lg leading-tight font-bold group-hover:underline md:text-xl">

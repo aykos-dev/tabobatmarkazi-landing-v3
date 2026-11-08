@@ -1,101 +1,61 @@
-import type { StaticImageData } from "next/image";
+import { fetchList, fetchOne, full, optional, type ApiLocalized } from "@/lib/api";
 import type { Localized } from "@/lib/i18n";
+import { toService, type ApiService, type Service } from "./services";
 
-import portraitSarah from "@/assets/mock/student-sarah.jpg";
-import portraitMichael from "@/assets/mock/student-michael.jpg";
-import portraitElena from "@/assets/mock/student-elena.jpg";
-
-/**
- * MOCK DATA. Names, roles, descriptions and portraits below are placeholders
- * for design work only; no real practitioners have been supplied yet.
- */
+/** Managed in the admin under Content → Doctors. */
 export interface Tabib {
+  /** URL slug. */
   id: string;
-  image: StaticImageData;
+  image: string;
   name: Localized<string>;
   role: Localized<string>;
   description: Localized<string>;
-  /** Mock entry: replace with a real practitioner before public launch. */
-  mock: boolean;
   /* Shown on the tabib's page only when the centre supplies them. */
   experience?: Localized<string>;
   education?: Localized<string>;
   schedule?: Localized<string>;
-  /** Ids from services.ts this tabib performs. */
-  services?: string[];
-  instagram: string;
-  telegram: string;
+  /** Published services this tabib performs. */
+  services: Service[];
+  instagram?: string;
+  telegram?: string;
 }
 
-export const tabibs: Tabib[] = [
-  {
-    id: "kamola-yusupova",
-    image: portraitSarah,
-    name: {
-      uz: "Kamola Yusupova",
-      ru: "Камола Юсупова",
-      en: "Kamola Yusupova",
-    },
-    role: {
-      uz: "Bosh tabib · Fitoterapevt",
-      ru: "Главный табиб · Фитотерапевт",
-      en: "Chief healer · Phytotherapist",
-    },
-    description: {
-      uz: "20 yillik tajribaga ega mutaxassis. Dorivor o'simliklar va an'anaviy sharq tibbiyoti bo'yicha yetakchi tabib.",
-      ru: "Специалист с 20-летним опытом. Ведущий табиб в области лекарственных трав и традиционной восточной медицины.",
-      en: "A specialist with 20 years of experience — a leading healer in medicinal herbs and traditional Eastern medicine.",
-    },
-    mock: true,
-    instagram: "https://instagram.com/tabobatmarkazi",
-    telegram: "https://t.me/tabobatmarkazi",
-  },
-  {
-    id: "otabek-rahimov",
-    image: portraitMichael,
-    name: {
-      uz: "Otabek Rahimov",
-      ru: "Отабек Рахимов",
-      en: "Otabek Rahimov",
-    },
-    role: {
-      uz: "Tabib · Hijoma mutaxassisi",
-      ru: "Табиб · Специалист по хиджаме",
-      en: "Healer · Cupping specialist",
-    },
-    description: {
-      uz: "Islom tibbiyoti va hijoma muolajalari bo'yicha sertifikatlangan mutaxassis. Individual yondashuv tarafdori.",
-      ru: "Сертифицированный специалист по исламской медицине и процедурам хиджамы. Сторонник индивидуального подхода.",
-      en: "A certified specialist in Islamic medicine and cupping therapy, committed to an individual approach.",
-    },
-    mock: true,
-    instagram: "https://instagram.com/tabobatmarkazi",
-    telegram: "https://t.me/tabobatmarkazi",
-  },
-  {
-    id: "dilnoza-karimova",
-    image: portraitElena,
-    name: {
-      uz: "Dilnoza Karimova",
-      ru: "Дилноза Каримова",
-      en: "Dilnoza Karimova",
-    },
-    role: {
-      uz: "Tabib · Massaj terapevti",
-      ru: "Табиб · Массажный терапевт",
-      en: "Healer · Massage therapist",
-    },
-    description: {
-      uz: "Tabiiy yog'lar bilan tiklovchi massaj va sog'lomlashtirish muolajalari bo'yicha mutaxassis.",
-      ru: "Специалист по восстанавливающему массажу с натуральными маслами и оздоровительным процедурам.",
-      en: "A specialist in restorative massage with natural oils and wellness treatments.",
-    },
-    mock: true,
-    instagram: "https://instagram.com/tabobatmarkazi",
-    telegram: "https://t.me/tabobatmarkazi",
-  },
-];
+export interface ApiDoctor {
+  slug: string;
+  imageUrl: string;
+  name: ApiLocalized;
+  role: ApiLocalized;
+  description: ApiLocalized;
+  experience: ApiLocalized | null;
+  education: ApiLocalized | null;
+  schedule: ApiLocalized | null;
+  instagram: string | null;
+  telegram: string | null;
+  services?: ApiService[];
+}
 
-export function getTabib(id: string): Tabib | undefined {
-  return tabibs.find((tabib) => tabib.id === id);
+export function toTabib(t: ApiDoctor): Tabib {
+  return {
+    id: t.slug,
+    image: t.imageUrl,
+    name: full(t.name),
+    role: full(t.role),
+    description: full(t.description),
+    experience: optional(t.experience),
+    education: optional(t.education),
+    schedule: optional(t.schedule),
+    services: (t.services ?? []).map(toService),
+    instagram: t.instagram ?? undefined,
+    telegram: t.telegram ?? undefined,
+  };
+}
+
+// Doctor pages list their services, so they also refresh when services change.
+export async function getTabibs(): Promise<Tabib[]> {
+  return (await fetchList<ApiDoctor>("doctors", ["services"])).map(toTabib);
+}
+
+export async function getTabib(id: string): Promise<Tabib | undefined> {
+  const t = await fetchOne<ApiDoctor>("doctors", id, ["services"]);
+  return t ? toTabib(t) : undefined;
 }

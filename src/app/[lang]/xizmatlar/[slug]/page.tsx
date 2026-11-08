@@ -9,18 +9,20 @@ import { SectionBand } from "@/components/SectionBand";
 import { SiteShell } from "@/components/SiteShell";
 import { contact } from "@/data/contact";
 import { getSection, sectionHref } from "@/data/sections";
-import { getService, services } from "@/data/services";
+import { getService, getServices } from "@/data/services";
 import { dictionary as d } from "@/i18n/dictionary";
 import { isLocale, locales, localize, type Locale, type Localized } from "@/lib/i18n";
 import { telHref } from "@/lib/links";
 
 const section = getSection("services");
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const services = await getServices();
   return locales.flatMap((lang) => services.map((service) => ({ lang, slug: service.id })));
 }
 
-export const dynamicParams = false;
+// Services added in the admin after a build render on first visit.
+export const dynamicParams = true;
 
 export async function generateMetadata({
   params,
@@ -28,7 +30,7 @@ export async function generateMetadata({
   params: Promise<{ lang: string; slug: string }>;
 }): Promise<Metadata> {
   const { lang, slug } = await params;
-  const service = getService(slug);
+  const service = await getService(slug);
   if (!isLocale(lang) || !service) return {};
   return {
     title: `${localize(service.title, lang)} — Tabobat Markazi`,
@@ -42,11 +44,11 @@ export default async function ServicePage({
   params: Promise<{ lang: string; slug: string }>;
 }) {
   const { lang, slug } = await params;
-  const service = getService(slug);
+  const [service, services] = await Promise.all([getService(slug), getServices()]);
   if (!isLocale(lang) || !service) notFound();
   const pick = <T,>(value: Record<Locale, T>) => localize(value, lang);
 
-  const index = services.indexOf(service);
+  const index = Math.max(0, services.findIndex((other) => other.id === service.id));
   const address = `${section.number}.${index + 1}`;
   const [lead, ...rest] = service.images;
   const others = services.filter((other) => other.id !== service.id);
