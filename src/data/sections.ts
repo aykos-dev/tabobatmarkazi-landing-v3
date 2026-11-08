@@ -181,7 +181,7 @@ export const sections: Section[] = [
     id: "tabibs",
     number: "03",
     slug: "tabiblar",
-    title: { uz: "Tabiblar", ru: "Табибы", en: "Tabibs" },
+    title: { uz: "Mutaxassislar", ru: "Специалисты", en: "Specialists" },
     page: true,
     tone: "herb",
     group: "sub",

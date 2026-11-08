@@ -4,9 +4,12 @@ import type { Localized } from "@/lib/i18n";
 /** Managed in the admin under Content → News. */
 export interface NewsArticle {
   slug: string;
+  /** Cover image. */
   image: string;
-  /** ISO date (YYYY-MM-DD). */
-  date: string;
+  /** More photos, in display order. */
+  images: string[];
+  /** ISO date (YYYY-MM-DD); optional, shown when set. */
+  date?: string;
   title: Localized<string>;
   description: Localized<string>;
   /** Full article body as Markdown; empty for a story that links to its source. */
@@ -18,7 +21,8 @@ export interface NewsArticle {
 interface ApiNews {
   slug: string;
   imageUrl: string;
-  date: string;
+  imageUrls?: (string | null)[];
+  date: string | null;
   title: ApiLocalized;
   description: ApiLocalized;
   body: ApiLocalized | null;
@@ -29,7 +33,8 @@ function toArticle(n: ApiNews): NewsArticle {
   return {
     slug: n.slug,
     image: n.imageUrl,
-    date: n.date,
+    images: (n.imageUrls ?? []).filter((url): url is string => Boolean(url)),
+    date: n.date ?? undefined,
     title: full(n.title),
     description: full(n.description),
     body: n.body?.uz ? full(n.body) : { uz: "", ru: "", en: "" },

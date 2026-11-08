@@ -81,9 +81,11 @@ export default async function NewsPage({ params }: { params: Promise<{ lang: str
                     {pick(lead.title)}
                   </NewsLink>
                 </h2>
-                <time dateTime={lead.date} className="tabular mt-2 block text-sm font-medium text-ink-2">
-                  {formatDate(lead.date, lang)}
-                </time>
+                {lead.date && (
+                  <time dateTime={lead.date} className="tabular mt-2 block text-sm font-medium text-ink-2">
+                    {formatDate(lead.date, lang)}
+                  </time>
+                )}
                 <p className="mt-3 max-w-[60ch] leading-snug text-ink-2 md:mt-auto md:text-lg">
                   {pick(lead.description)}
                 </p>
@@ -125,9 +127,11 @@ export default async function NewsPage({ params }: { params: Promise<{ lang: str
                         className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                       />
                     </div>
-                    <time dateTime={article.date} className="tabular text-sm font-medium text-ink-2 md:col-span-2 md:pt-2">
-                      {formatDate(article.date, lang)}
-                    </time>
+                    {article.date && (
+                      <time dateTime={article.date} className="tabular text-sm font-medium text-ink-2 md:col-span-2 md:pt-2">
+                        {formatDate(article.date, lang)}
+                      </time>
+                    )}
                     <div className="md:col-span-7">
                       <h2 className="text-2xl leading-tight font-bold tracking-[-0.02em] md:text-4xl">
                         <NewsLink

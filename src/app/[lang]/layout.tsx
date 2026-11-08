@@ -21,9 +21,9 @@ const titles = {
 };
 
 const descriptions = {
-  uz: "Hijoma, fitoterapiya, massaj, tabib konsultatsiyasi, xalq tabobati kurslari va fitobar. Toshkent, Farobiy 2.",
-  ru: "Хиджама, фитотерапия, массаж, консультация табиба, курсы народной медицины и фитобар. Ташкент, Фаробий 2.",
-  en: "Cupping, phytotherapy, massage, tabib consultations, folk-medicine courses and a herbal bar. Farobiy 2, Tashkent.",
+  uz: "Hijoma, fitoterapiya, massaj, mutaxassis konsultatsiyasi, xalq tabobati kurslari va fitobar. Toshkent, Farobiy 2.",
+  ru: "Хиджама, фитотерапия, массаж, консультация специалиста, курсы народной медицины и фитобар. Ташкент, Фаробий 2.",
+  en: "Cupping, phytotherapy, massage, specialist consultations, folk-medicine courses and a herbal bar. Farobiy 2, Tashkent.",
 };
 
 export function generateStaticParams() {

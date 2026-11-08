@@ -128,7 +128,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                 title: pick(article.title),
                 description: pick(article.description),
                 date: article.date,
-                dateLabel: formatDate(article.date, lang),
+                dateLabel: article.date ? formatDate(article.date, lang) : undefined,
               }))}
             />
 
@@ -499,9 +499,11 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                     {pick(leadArticle.title)}
                   </NewsLink>
                 </h3>
-                <time dateTime={leadArticle.date} className="tabular mt-2 block text-sm font-medium text-ink-2">
-                  {formatDate(leadArticle.date, lang)}
-                </time>
+                {leadArticle.date && (
+                  <time dateTime={leadArticle.date} className="tabular mt-2 block text-sm font-medium text-ink-2">
+                    {formatDate(leadArticle.date, lang)}
+                  </time>
+                )}
                 <p className="mt-3 max-w-[65ch] leading-snug text-ink-2 md:mt-auto md:text-lg">
                   {pick(leadArticle.description)}
                 </p>
@@ -520,9 +522,11 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                       {pick(article.title)}
                     </NewsLink>
                   </h3>
-                  <time dateTime={article.date} className="tabular mt-1.5 block text-sm font-medium text-ink-2">
-                    {formatDate(article.date, lang)}
-                  </time>
+                  {article.date && (
+                    <time dateTime={article.date} className="tabular mt-1.5 block text-sm font-medium text-ink-2">
+                      {formatDate(article.date, lang)}
+                    </time>
+                  )}
                 </li>
               ))}
             </ol>

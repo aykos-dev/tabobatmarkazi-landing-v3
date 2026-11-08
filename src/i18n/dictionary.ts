@@ -73,9 +73,14 @@ export const dictionary = {
       en: (n: number) => `${n} articles`,
     },
     tabibs: {
-      uz: (n: number) => `${n} tabib`,
-      ru: (n: number) => `${n} табиба`,
-      en: (n: number) => `${n} tabibs`,
+      uz: (n: number) => `${n} mutaxassis`,
+      ru: (n: number) => {
+        const m10 = n % 10, m100 = n % 100;
+        const word =
+          m10 === 1 && m100 !== 11 ? "специалист" : m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14) ? "специалиста" : "специалистов";
+        return `${n} ${word}`;
+      },
+      en: (n: number) => `${n} ${n === 1 ? "specialist" : "specialists"}`,
     },
     fitobar: {
       uz: (n: number) => `${n} mahsulot`,
@@ -135,6 +140,13 @@ export const dictionary = {
       en: (host: string) => `opens on ${host}`,
     },
   },
+  photoViewer: {
+    open: { uz: "Rasmni kattalashtirish", ru: "Открыть фото", en: "Open photo" },
+    close: { uz: "Yopish", ru: "Закрыть", en: "Close" },
+    previous: { uz: "Oldingi rasm", ru: "Предыдущее фото", en: "Previous photo" },
+    next: { uz: "Keyingi rasm", ru: "Следующее фото", en: "Next photo" },
+    gallery: { uz: "Fotogalereya", ru: "Фотогалерея", en: "Photos" },
+  },
   newsSlider: {
     region: { uz: "So'nggi yangiliklar", ru: "Последние новости", en: "Latest news" },
     previous: { uz: "Oldingi yangilik", ru: "Предыдущая новость", en: "Previous story" },
@@ -156,8 +168,8 @@ export const dictionary = {
     ru: "Специалисты, которые вас примут.",
     en: "The specialists who will see you.",
   },
-  allTabibs: { uz: "Barcha tabiblar", ru: "Все табибы", en: "All tabibs" },
-  otherTabibs: { uz: "Boshqa tabiblar", ru: "Другие табибы", en: "Other tabibs" },
+  allTabibs: { uz: "Barcha mutaxassislar", ru: "Все специалисты", en: "All specialists" },
+  otherTabibs: { uz: "Boshqa mutaxassislar", ru: "Другие специалисты", en: "Other specialists" },
   tabibSpec: {
     specialty: { uz: "Mutaxassislik", ru: "Специализация", en: "Specialty" },
     experience: { uz: "Tajriba", ru: "Опыт", en: "Experience" },

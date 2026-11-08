@@ -98,9 +98,9 @@ export const directionContent: Record<DirectionId, DirectionContent> = {
       {
         title: { uz: "Mutaxassislar darajalari", ru: "Уровни специалистов", en: "Practitioner levels" },
         text: {
-          uz: "Uch daraja: rahbar mutaxassis, mustaqil ishlovchi malakali tabib va tajribali mutaxassis nazoratida ishlovchi tinglovchi.",
-          ru: "Три уровня: ведущий специалист-наставник, квалифицированный табиб, работающий самостоятельно, и слушатель, работающий под контролем опытного специалиста.",
-          en: "Three levels: a supervising senior practitioner, a qualified tabib who treats independently, and a trainee who treats under an experienced practitioner's supervision.",
+          uz: "Uch daraja: rahbar mutaxassis, mustaqil ishlovchi malakali mutaxassis va tajribali mutaxassis nazoratida ishlovchi tinglovchi.",
+          ru: "Три уровня: ведущий специалист-наставник, квалифицированный специалист, работающий самостоятельно, и слушатель, работающий под контролем опытного специалиста.",
+          en: "Three levels: a supervising senior practitioner, a qualified specialist who treats independently, and a trainee who treats under an experienced practitioner's supervision.",
         },
       },
       {
@@ -198,9 +198,9 @@ export const directionContent: Record<DirectionId, DirectionContent> = {
       {
         title: { uz: "Malaka oshirish", ru: "Повышение квалификации", en: "Professional development" },
         text: {
-          uz: "Shifokorlar va tabiblar uchun qisqa muddatli dasturlar.",
-          ru: "Краткосрочные программы для врачей и табибов.",
-          en: "Short programmes for doctors and tabibs.",
+          uz: "Shifokorlar va mutaxassislar uchun qisqa muddatli dasturlar.",
+          ru: "Краткосрочные программы для врачей и специалистов.",
+          en: "Short programmes for doctors and specialists.",
         },
       },
     ],
@@ -216,9 +216,9 @@ export const directionContent: Record<DirectionId, DirectionContent> = {
       en: "Bringing folk-medicine methods together with modern healthcare.",
     },
     intro: {
-      uz: "Bemorlar markazda an'anaviy muolajalarni malakali tabiblar nazoratida oladi. Xizmatlar narxi oldindan ma'lum, qabulga telefon orqali yoziladi.",
-      ru: "Пациенты получают в центре традиционные процедуры под наблюдением квалифицированных табибов. Цены известны заранее, запись на приём — по телефону.",
-      en: "Patients receive traditional treatments at the centre under the care of qualified tabibs. Prices are known in advance; visits are booked by phone.",
+      uz: "Bemorlar markazda an'anaviy muolajalarni malakali mutaxassislar nazoratida oladi. Xizmatlar narxi oldindan ma'lum, qabulga telefon orqali yoziladi.",
+      ru: "Пациенты получают в центре традиционные процедуры под наблюдением квалифицированных специалистов. Цены известны заранее, запись на приём — по телефону.",
+      en: "Patients receive traditional treatments at the centre under the care of qualified specialists. Prices are known in advance; visits are booked by phone.",
     },
     activities: [
       {
@@ -411,9 +411,9 @@ export const directionContent: Record<DirectionId, DirectionContent> = {
       },
       {
         title: {
-          uz: "Tabiblarga qo'yiladigan malaka talablari",
-          ru: "Квалификационные требования к табибам",
-          en: "Qualification requirements for tabibs",
+          uz: "Mutaxassislarga qo'yiladigan malaka talablari",
+          ru: "Квалификационные требования к специалистам",
+          en: "Qualification requirements for specialists",
         },
         kind: DRAFT,
       },
