@@ -19,13 +19,13 @@ export function RangeStrip({ items, label }: { items: RangeItem[]; label: string
         {items.map(({ section, title, fact, href }) => {
           const tone = toneClass[section.tone];
           return (
-            <li key={section.id} className="md:border-r-2 md:border-ink md:last:border-r-0">
+            <li key={section.id} className="flex md:border-r-2 md:border-ink md:last:border-r-0">
               <SweepLink
                 href={href}
                 tone={section.tone}
                 number={section.number}
                 title={title}
-                className={`group grid h-12 grid-cols-[2.75rem_1fr_auto] items-center px-4 no-underline transition-[filter] duration-200 hover:brightness-110 md:min-h-28 md:grid-cols-1 md:grid-rows-[auto_1fr_auto] md:items-start md:px-5 md:py-3 ${tone.bg} ${tone.fg}`}
+                className={`group grid min-h-12 flex-1 grid-cols-[2.75rem_1fr_auto] items-center px-4 py-2 no-underline transition-[filter] duration-200 hover:brightness-110 md:h-full md:min-h-28 md:grid-cols-1 md:grid-rows-[auto_1fr_auto] md:items-start md:px-5 md:pt-3 md:pb-5 ${tone.bg} ${tone.fg}`}
               >
                 <span className="tabular text-sm font-bold md:text-base">{section.number}</span>
                 <span className="text-[0.95rem] font-bold md:self-end md:text-xl md:tracking-[-0.02em]">

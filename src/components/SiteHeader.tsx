@@ -161,9 +161,9 @@ export function SiteHeader({ lang, sections, labels, current: initial = "home" }
                       number={section.number}
                       title={section.title}
                       onNavigate={() => setOpen(false)}
-                      className={`flex min-h-16 flex-1 items-center gap-5 border-b-2 border-ink px-4 text-3xl font-bold tracking-[-0.02em] no-underline md:px-10 md:text-5xl ${tone.bg} ${tone.fg}`}
+                      className={`flex min-h-16 flex-1 items-center gap-5 border-b-2 border-ink px-4 py-2 text-2xl leading-tight font-bold tracking-[-0.02em] no-underline sm:text-3xl md:px-10 md:text-5xl ${tone.bg} ${tone.fg}`}
                     >
-                      <span className={`tabular w-12 text-base md:w-20 md:text-2xl ${tone.fg2}`}>
+                      <span className={`tabular w-10 shrink-0 text-base md:w-20 md:text-2xl ${tone.fg2}`}>
                         {section.number}
                       </span>
                       {section.title}

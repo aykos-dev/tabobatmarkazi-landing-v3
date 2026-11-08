@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 
 import { CallButton } from "@/components/CallButton";
 import { MockNotice } from "@/components/MockNotice";
+import { DirectionCrumb } from "@/components/DirectionCrumb";
 import { SectionBand } from "@/components/SectionBand";
 import { SiteShell } from "@/components/SiteShell";
 import { getSection } from "@/data/sections";
@@ -38,7 +39,13 @@ export default async function TabibsPage({ params }: { params: Promise<{ lang: s
 
   return (
     <SiteShell lang={lang} current="tabibs">
-      <SectionBand as="h1" section={section} title={pick(section.title)} lede={pick(d.tabibsLede)}>
+      <SectionBand
+        as="h1"
+        section={section}
+        title={pick(section.title)}
+        lede={pick(d.tabibsLede)}
+        crumb={<DirectionCrumb section={section} lang={lang} />}
+      >
         {hasMock && (
           <div className="mb-8 md:mb-12">
             <MockNotice label={pick(d.mockLabel)} text={pick(d.mockNotice)} />
@@ -64,7 +71,7 @@ export default async function TabibsPage({ params }: { params: Promise<{ lang: s
                 )}
               </div>
               <div className="mt-4 grid flex-1 grid-cols-[2.75rem_1fr] border-t-2 border-ink pt-3">
-                <span className="tabular pt-1.5 text-sm font-bold text-pomegranate">
+                <span className="tabular pt-1.5 text-sm font-bold text-herb">
                   {section.number}.{index + 1}
                 </span>
                 <div className="flex flex-col">
@@ -78,7 +85,7 @@ export default async function TabibsPage({ params }: { params: Promise<{ lang: s
                   </h2>
                   <p className="mt-1 font-medium text-ink-2">{pick(tabib.role)}</p>
                   <p className="mt-3 max-w-[48ch] leading-snug text-ink-2">{pick(tabib.description)}</p>
-                  <span className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-bold text-pomegranate">
+                  <span className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-bold text-herb">
                     {pick(d.details)}
                     <ArrowRight
                       aria-hidden

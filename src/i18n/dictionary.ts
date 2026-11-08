@@ -38,6 +38,34 @@ export const dictionary = {
     ru: "Концептуальная визуализация",
     en: "Concept visualisation",
   },
+  /** Direction pages (01–06). */
+  direction: {
+    sampleNotice: {
+      uz: "Bu bo'limdagi matnlar namuna sifatida tayyorlangan va markaz tasdiqlagan ma'lumotlar bilan almashtiriladi.",
+      ru: "Тексты этого раздела подготовлены как образец и будут заменены сведениями, утверждёнными центром.",
+      en: "The text in this section is a sample and will be replaced with information approved by the centre.",
+    },
+    activities: { uz: "Faoliyat yo'nalishlari", ru: "Направления работы", en: "Areas of work" },
+    documents: { uz: "Hujjatlar", ru: "Документы", en: "Documents" },
+    open: { uz: "Bo'limga o'tish", ru: "Перейти в раздел", en: "Open the section" },
+    facts: {
+      activities: {
+        uz: (n: number) => `${n} faoliyat yo'nalishi`,
+        ru: (n: number) => `${n} направления работы`,
+        en: (n: number) => `${n} areas of work`,
+      },
+      documents: {
+        uz: (n: number) => `${n} hujjat`,
+        ru: (n: number) => `${n} документа`,
+        en: (n: number) => `${n} documents`,
+      },
+      courses: {
+        uz: (n: number, span: string) => `${n} kurs · ${span}`,
+        ru: (n: number, span: string) => `${n} курсов · ${span}`,
+        en: (n: number, span: string) => `${n} courses · ${span}`,
+      },
+    },
+  },
   rangeFacts: {
     services: {
       uz: (n: number, from: string) => `${n} · ${from}dan`,
@@ -102,6 +130,11 @@ export const dictionary = {
     uz: "Markaz hayotidan so'nggi xabarlar.",
     ru: "Последние новости из жизни центра.",
     en: "The latest from the centre.",
+  },
+  newsSlider: {
+    region: { uz: "So'nggi yangiliklar", ru: "Последние новости", en: "Latest news" },
+    previous: { uz: "Oldingi yangilik", ru: "Предыдущая новость", en: "Previous story" },
+    next: { uz: "Keyingi yangilik", ru: "Следующая новость", en: "Next story" },
   },
   allNews: { uz: "Barcha yangiliklar", ru: "Все новости", en: "All news" },
   otherNews: { uz: "Boshqa yangiliklar", ru: "Другие новости", en: "More news" },
