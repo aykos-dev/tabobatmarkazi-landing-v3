@@ -28,81 +28,128 @@ export interface DirectionContent {
   intro: Localized<string>;
   activities: Activity[];
   documents?: DirectionDocument[];
-  /** True while the text is ours, not the centre's. */
+  /** True while the text is ours, not the centre's (not shown on the site). */
   sample: boolean;
+  /** Plate for the direction: one of our concept renders in /public/images/concept. */
+  image: string;
+  imageAlt: Localized<string>;
 }
 
 const DRAFT: Localized<string> = { uz: "Loyiha", ru: "Проект", en: "Draft" };
 
 export const directionContent: Record<DirectionId, DirectionContent> = {
   standardization: {
+    image: "/images/concept/floor-plan.jpg",
+    imageAlt: { uz: "Fitobar zonalari tasniflangan reja", ru: "План зонирования фитобара по категориям", en: "A floor plan with the herbal bar divided into zones" },
+    // Topics adapted (not translated) from a teaching clinic's public page on
+    // treatment methods, intake, hygiene and supervision; still sample text.
     sample: true,
     lede: {
-      uz: "Xalq tabobati usullari, dorivor o'simlik xomashyosi va fitomahsulotlar uchun yagona talablar va tasnif.",
-      ru: "Единые требования и классификация для методов народной медицины, лекарственного сырья и фитопродукции.",
-      en: "Common requirements and classification for folk-medicine methods, medicinal plant materials and herbal products.",
+      uz: "Har bir muolaja bir xil xavfsiz tartibda o'tkazilishi uchun usullar tasnifi, qabul va gigiyena standartlari.",
+      ru: "Классификация методов, стандарты приёма и гигиены, чтобы каждая процедура проходила по единому безопасному порядку.",
+      en: "Classification of methods and standards for intake and hygiene, so every treatment follows the same safe procedure.",
     },
     intro: {
-      uz: "Yo'nalish xalq tabobati amaliyotini tartibga solish uchun asos yaratadi: usullar va mahsulotlar tasniflanadi, sifat talablari ishlab chiqiladi, amaliyotchilar uchun yagona atamalar belgilanadi.",
-      ru: "Направление создаёт основу для упорядочения практики народной медицины: методы и продукция классифицируются, разрабатываются требования к качеству, для специалистов закрепляется единая терминология.",
-      en: "This direction lays the groundwork for regulating folk-medicine practice: methods and products are classified, quality requirements are developed, and practitioners share one set of terms.",
+      uz: "Yo'nalish markazdagi har bir muolajaning tartibini belgilaydi: usullar turlarga ajratiladi, bemorni qabul qilish va davolash kursi yagona sxema bo'yicha olib boriladi, gigiyena qoidalari va mutaxassislar darajalari aniq yozib qo'yiladi.",
+      ru: "Направление задаёт порядок каждой процедуры в центре: методы делятся на виды, приём пациента и курс лечения ведутся по единой схеме, правила гигиены и уровни специалистов закреплены письменно.",
+      en: "This direction sets how every treatment at the centre is carried out: methods are grouped by type, intake and treatment courses follow one scheme, and hygiene rules and practitioner levels are written down.",
     },
     activities: [
       {
-        title: { uz: "Usullar tasnifi", ru: "Классификация методов", en: "Classification of methods" },
+        title: { uz: "Muolaja usullari tasnifi", ru: "Классификация методов", en: "Classification of methods" },
         text: {
-          uz: "Xalq tabobati usullarini qo'llanilishi va xavfsizligi bo'yicha guruhlash.",
-          ru: "Группировка методов народной медицины по применению и безопасности.",
-          en: "Grouping folk-medicine methods by their use and safety.",
+          uz: "Igna bilan davolash, elektroakupunktura, hijoma, moksa (isitish), quloq nuqtalari terapiyasi va fitoterapiya turlarga ajratiladi; har biri uchun ko'rsatma va qarshi ko'rsatmalar belgilanadi.",
+          ru: "Иглотерапия, электроакупунктура, хиджама, мокса (прогревание), аурикулотерапия и фитотерапия разделены по видам; для каждого метода определены показания и противопоказания.",
+          en: "Needle therapy, electro-acupuncture, cupping, moxa (warming), ear-point therapy and herbal medicine are grouped by type, each with its indications and contraindications.",
         },
       },
       {
-        title: { uz: "Dorivor xomashyo standartlari", ru: "Стандарты лекарственного сырья", en: "Raw-material standards" },
+        title: { uz: "Fitoterapiya retseptlari", ru: "Фитотерапевтические рецепты", en: "Herbal prescriptions" },
         text: {
-          uz: "Dorivor o'simliklarni yig'ish, quritish va saqlash talablari.",
-          ru: "Требования к сбору, сушке и хранению лекарственных растений.",
-          en: "Requirements for harvesting, drying and storing medicinal plants.",
+          uz: "Yig'malar o'tkir holatlar uchun qisqa muddatli va surunkali holatlar uchun uzoq muddatli turlarga bo'linadi. Retsept odatda 1–2 haftaga yoziladi, so'ng natija qayta baholanadi.",
+          ru: "Сборы делятся на краткосрочные — для острых состояний и длительные — для хронических. Рецепт обычно выписывается на 1–2 недели, затем результат оценивается заново.",
+          en: "Blends are split into short-term ones for acute conditions and long-term ones for chronic conditions. A prescription usually covers 1–2 weeks, then the result is reassessed.",
         },
       },
       {
-        title: { uz: "Fitomahsulotlar sifati", ru: "Качество фитопродукции", en: "Herbal product quality" },
+        title: { uz: "Bemorni qabul qilish standarti", ru: "Стандарт приёма пациента", en: "Patient intake standard" },
         text: {
-          uz: "Choylar, yig'malar va moylar uchun sifat ko'rsatkichlari.",
-          ru: "Показатели качества для чаёв, сборов и масел.",
-          en: "Quality indicators for teas, blends and oils.",
+          uz: "Birinchi qabulda umumiy salomatlik tarixi so'raladi: ovqat hazm qilish, uyqu, ayollarda hayz sikli va boshqa tizimlar. Shu asosda shaxsiy davolash rejasi tuziladi.",
+          ru: "На первом приёме собирается полная история здоровья: пищеварение, сон, у женщин — менструальный цикл и другие системы. На этой основе составляется индивидуальный план лечения.",
+          en: "The first visit records a full health history, including digestion, sleep, the menstrual cycle for women and other body systems. A personal treatment plan is built from it.",
         },
       },
       {
-        title: { uz: "Atamalar lug'ati", ru: "Терминологический словарь", en: "Glossary of terms" },
+        title: { uz: "Davolash kursi tartibi", ru: "Порядок курса лечения", en: "Treatment course" },
         text: {
-          uz: "Xalq tabobati atamalarining o'zbek, rus va ingliz tillaridagi yagona lug'ati.",
-          ru: "Единый словарь терминов народной медицины на узбекском, русском и английском.",
-          en: "One glossary of folk-medicine terms in Uzbek, Russian and English.",
+          uz: "Odatiy kurs: 4–8 hafta davomida haftada bir muolaja, keyin oraliqlar uzaytiriladi. Natija bir necha muolajadan so'ng baholanadi va reja kerak bo'lsa o'zgartiriladi.",
+          ru: "Обычный курс: одна процедура в неделю в течение 4–8 недель, затем интервалы увеличиваются. Результат оценивается после нескольких процедур, при необходимости план меняется.",
+          en: "A typical course is one session a week for 4–8 weeks, then sessions are spaced out. Progress is reviewed after a few sessions and the plan is adjusted if needed.",
+        },
+      },
+      {
+        title: { uz: "Gigiyena va sterilizatsiya", ru: "Гигиена и стерилизация", en: "Hygiene and sterilisation" },
+        text: {
+          uz: "Faqat steril, bir martalik ignalar ishlatiladi. Bemor qabul qilishdan oldin har bir mutaxassis igna bilan xavfsiz ishlash kursidan o'tadi.",
+          ru: "Используются только стерильные одноразовые иглы. До приёма пациентов каждый специалист проходит курс безопасной работы с иглами.",
+          en: "Only sterile, single-use needles are used. Before treating patients, every practitioner completes a course in safe needle handling.",
+        },
+      },
+      {
+        title: { uz: "Mutaxassislar darajalari", ru: "Уровни специалистов", en: "Practitioner levels" },
+        text: {
+          uz: "Uch daraja: rahbar mutaxassis, mustaqil ishlovchi malakali tabib va tajribali mutaxassis nazoratida ishlovchi tinglovchi.",
+          ru: "Три уровня: ведущий специалист-наставник, квалифицированный табиб, работающий самостоятельно, и слушатель, работающий под контролем опытного специалиста.",
+          en: "Three levels: a supervising senior practitioner, a qualified tabib who treats independently, and a trainee who treats under an experienced practitioner's supervision.",
+        },
+      },
+      {
+        title: { uz: "Tibbiy yozuvlar maxfiyligi", ru: "Конфиденциальность записей", en: "Confidential records" },
+        text: {
+          uz: "Bemor ma'lumotlari himoyalangan elektron kartada saqlanadi va uchinchi shaxslarga faqat bemorning yozma roziligi bilan beriladi.",
+          ru: "Данные пациента хранятся в защищённой электронной карте и передаются третьим лицам только с письменного согласия пациента.",
+          en: "Patient information is kept in a protected electronic record and shared with third parties only with the patient's written consent.",
         },
       },
     ],
     documents: [
       {
         title: {
-          uz: "Xalq tabobati usullari tasnifi",
+          uz: "Xalq tabobati muolaja usullari tasnifi",
           ru: "Классификатор методов народной медицины",
-          en: "Classifier of folk-medicine methods",
+          en: "Classifier of folk-medicine treatment methods",
         },
         kind: DRAFT,
       },
       {
         title: {
-          uz: "Dorivor o'simlik xomashyosiga umumiy talablar",
-          ru: "Общие требования к лекарственному растительному сырью",
-          en: "General requirements for medicinal plant materials",
+          uz: "Bemorni qabul qilish va davolash rejasini tuzish tartibi",
+          ru: "Порядок приёма пациента и составления плана лечения",
+          en: "Procedure for patient intake and treatment planning",
         },
         kind: DRAFT,
       },
       {
         title: {
-          uz: "Fitochoylar va yig'malar: sifat ko'rsatkichlari",
-          ru: "Фиточаи и сборы: показатели качества",
-          en: "Herbal teas and blends: quality indicators",
+          uz: "Igna bilan ishlashda xavfsizlik va sterilizatsiya qoidalari",
+          ru: "Правила безопасности и стерилизации при работе с иглами",
+          en: "Safety and sterilisation rules for needle work",
+        },
+        kind: DRAFT,
+      },
+      {
+        title: {
+          uz: "Fitoterapiya retseptlarini tuzish va berish tartibi",
+          ru: "Порядок составления и выдачи фитотерапевтических рецептов",
+          en: "Procedure for writing and dispensing herbal prescriptions",
+        },
+        kind: DRAFT,
+      },
+      {
+        title: {
+          uz: "Bemor ma'lumotlari maxfiyligi to'g'risidagi nizom",
+          ru: "Положение о конфиденциальности данных пациентов",
+          en: "Regulation on patient data confidentiality",
         },
         kind: DRAFT,
       },
@@ -110,6 +157,8 @@ export const directionContent: Record<DirectionId, DirectionContent> = {
   },
 
   research: {
+    image: "/images/concept/zone5-manuscripts.jpg",
+    imageAlt: { uz: "Sharq tabobati qo'lyozmalari", ru: "Рукописи восточной медицины", en: "Manuscripts of Eastern medicine" },
     sample: true,
     lede: {
       uz: "Xalq tabobatini o'qitish va uning usullarini ilmiy asosda o'rganish.",
@@ -158,6 +207,8 @@ export const directionContent: Record<DirectionId, DirectionContent> = {
   },
 
   integration: {
+    image: "/images/concept/zone1-house.jpg",
+    imageAlt: { uz: "Markazning qabul zali", ru: "Приёмный зал центра", en: "The centre's reception hall" },
     sample: true,
     lede: {
       uz: "Xalq tabobati usullarini zamonaviy sog'liqni saqlash tizimi bilan birlashtirish.",
@@ -198,6 +249,8 @@ export const directionContent: Record<DirectionId, DirectionContent> = {
   },
 
   biolab: {
+    image: "/images/concept/zone2-guest-room.jpg",
+    imageAlt: { uz: "Dorivor o'simliklar laboratoriyasi", ru: "Лаборатория лекарственных растений", en: "A laboratory for medicinal plants" },
     sample: true,
     lede: {
       uz: "Dorivor o'simliklar va fitomahsulotlarni laboratoriyada tekshirish va tayyorlash.",
@@ -246,6 +299,8 @@ export const directionContent: Record<DirectionId, DirectionContent> = {
   },
 
   international: {
+    image: "/images/concept/pharmacy-interior.jpg",
+    imageAlt: { uz: "Mehmonlar uchun ekspozitsiya zali", ru: "Экспозиционный зал для гостей", en: "An exhibition hall for visitors" },
     sample: true,
     lede: {
       uz: "Xalq tabobati bo'yicha xorijiy markazlar bilan hamkorlik va tajriba almashinuvi.",
@@ -294,6 +349,8 @@ export const directionContent: Record<DirectionId, DirectionContent> = {
   },
 
   legal: {
+    image: "/images/concept/zone3-office.jpg",
+    imageAlt: { uz: "Hujjatlar va o'ramlar qo'yilgan ish stoli", ru: "Рабочий стол с документами и свитками", en: "A desk with documents and scrolls" },
     sample: true,
     lede: {
       uz: "Markaz faoliyatini tartibga soluvchi hujjatlar va ularni ishlab chiqish.",

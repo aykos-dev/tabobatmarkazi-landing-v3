@@ -2,11 +2,12 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import { Markdown } from "@/components/Markdown";
+import { NewsLink } from "@/components/NewsLink";
 import { SiteShell } from "@/components/SiteShell";
-import { getArticle, latestNews } from "@/data/news";
+import { getArticle, latestNews, newsLink, sourceHost } from "@/data/news";
 import { getSection, sectionHref } from "@/data/sections";
 import { dictionary as d } from "@/i18n/dictionary";
 import { formatDate } from "@/lib/format";
@@ -16,7 +17,9 @@ const section = getSection("news");
 
 export async function generateStaticParams() {
   const news = await latestNews();
-  return locales.flatMap((lang) => news.map((article) => ({ lang, slug: article.slug })));
+  // Stories that live on another site have no page here.
+  const own = news.filter((article) => !article.externalUrl);
+  return locales.flatMap((lang) => own.map((article) => ({ lang, slug: article.slug })));
 }
 
 // Articles published in the admin after a build render on first visit.
@@ -46,6 +49,8 @@ export default async function ArticlePage({
   const { lang, slug } = await params;
   const [article, news] = await Promise.all([getArticle(slug), latestNews()]);
   if (!isLocale(lang) || !article) notFound();
+  // A story published elsewhere: old or shared links to its page go to the source.
+  if (article.externalUrl) redirect(article.externalUrl);
   const pick = <T,>(value: Record<Locale, T>) => localize(value, lang);
   const others = news.filter((other) => other.slug !== article.slug);
 
@@ -118,12 +123,13 @@ export default async function ArticlePage({
               <li key={other.slug} className="group relative grid grid-cols-[1fr_6.5rem] gap-4 md:grid-cols-[1fr_11rem]">
                 <div>
                   <h3 className="text-lg leading-tight font-bold md:text-2xl">
-                    <Link
-                      href={`/${lang}/${section.slug}/${other.slug}`}
+                    <NewsLink
+                      {...newsLink(other, lang)}
+                      externalLabel={other.externalUrl ? pick(d.newsSource.opens)(sourceHost(other.externalUrl)) : undefined}
                       className="no-underline after:absolute after:inset-0 group-hover:underline"
                     >
                       {pick(other.title)}
-                    </Link>
+                    </NewsLink>
                   </h3>
                   <time dateTime={other.date} className="tabular mt-2 block text-sm font-medium text-ink-2">
                     {formatDate(other.date, lang)}

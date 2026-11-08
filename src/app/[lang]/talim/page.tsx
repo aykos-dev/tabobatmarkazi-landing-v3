@@ -97,7 +97,7 @@ export default async function EducationPage({ params }: { params: Promise<{ lang
                   </Link>
                   <p className="mt-2 max-w-[60ch] leading-snug text-ink-2 md:text-lg">{pick(course.description)}</p>
                   <p className="mt-2 text-sm leading-snug text-ink-2">
-                    <span className="font-bold text-ink">{pick(d.table.requirements)}:</span>{" "}
+                    <span className="font-bold text-on-paper">{pick(d.table.requirements)}:</span>{" "}
                     {pick(course.requirements)}
                   </p>
                 </td>

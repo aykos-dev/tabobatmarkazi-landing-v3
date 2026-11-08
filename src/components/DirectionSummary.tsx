@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-import { MockNotice } from "@/components/MockNotice";
+import Image from "next/image";
 import { directionContent } from "@/data/directions";
 import { getSection, sectionHref, type DirectionId } from "@/data/sections";
 import { dictionary as d } from "@/i18n/dictionary";
@@ -19,11 +19,18 @@ export function DirectionSummary({ id, lang }: { id: DirectionId; lang: Locale }
     <div className="grid gap-8 md:grid-cols-12 md:gap-x-6">
       <div className="md:col-span-5">
         <p className="text-lg leading-snug md:text-xl">{pick(content.intro)}</p>
-        {content.sample && (
-          <div className="mt-5">
-            <MockNotice label={pick(d.mockLabel)} text={pick(d.direction.sampleNotice)} />
+        <figure className="mt-6">
+          <div className="relative aspect-[4/3] overflow-hidden bg-stone">
+            <Image
+              src={content.image}
+              alt={pick(content.imageAlt)}
+              fill
+              sizes="(min-width: 768px) 40vw, 100vw"
+              className="object-cover"
+            />
           </div>
-        )}
+          <figcaption className="mt-2 text-xs text-ink-3">{pick(d.conceptCaption)}</figcaption>
+        </figure>
         <Link
           href={sectionHref(section, lang)}
           className="group mt-6 inline-flex h-14 items-center gap-2 border-2 border-ink px-6 font-bold no-underline transition-colors duration-200 hover:bg-ink hover:text-paper"

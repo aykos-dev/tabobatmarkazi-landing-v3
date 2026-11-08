@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { DirectionSummary } from "@/components/DirectionSummary";
+import { NewsLink } from "@/components/NewsLink";
 import { NewsSlider } from "@/components/NewsSlider";
 import { RangeStrip } from "@/components/RangeStrip";
 import { SectionBand } from "@/components/SectionBand";
@@ -12,7 +13,7 @@ import { SiteShell } from "@/components/SiteShell";
 import { contact } from "@/data/contact";
 import { getCourses } from "@/data/courses";
 import { directionContent } from "@/data/directions";
-import { latestNews } from "@/data/news";
+import { latestNews, newsLink, sourceHost, type NewsArticle } from "@/data/news";
 import { getProducts } from "@/data/products";
 import { directions, sectionHref, sections, shortTitle } from "@/data/sections";
 import { getServices } from "@/data/services";
@@ -69,6 +70,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   }));
 
   const [leadArticle, ...moreArticles] = news;
+  // A story opens its own page or, when published elsewhere, its source site.
+  const opens = (article: NewsArticle) =>
+    article.externalUrl ? pick(d.newsSource.opens)(sourceHost(article.externalUrl)) : undefined;
 
   return (
     <SiteShell lang={lang}>
@@ -117,7 +121,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               }}
               slides={news.map((article) => ({
                 slug: article.slug,
-                href: `${sectionHref(s.news, lang)}/${article.slug}`,
+                ...newsLink(article, lang),
+                source: article.externalUrl ? sourceHost(article.externalUrl) : undefined,
+                externalLabel: opens(article),
                 image: article.image,
                 title: pick(article.title),
                 description: pick(article.description),
@@ -228,7 +234,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                           {pick(course.title)}
                         </Link>
                         <p className="mt-1 text-sm leading-snug text-ink-2">
-                          <span className="font-medium text-ink">{pick(d.table.requirements)}:</span>{" "}
+                          <span className="font-medium text-on-paper">{pick(d.table.requirements)}:</span>{" "}
                           {pick(course.requirements)}
                         </p>
                       </td>
@@ -485,12 +491,13 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               </figure>
               <div className="mt-4 md:col-span-5 md:mt-0 md:flex md:flex-col md:border-t-2 md:border-ink md:pt-4 md:pb-7">
                 <h3 className="text-2xl leading-tight font-bold tracking-[-0.02em] md:text-4xl">
-                  <Link
-                    href={`${sectionHref(s.news, lang)}/${leadArticle.slug}`}
+                  <NewsLink
+                    {...newsLink(leadArticle, lang)}
+                    externalLabel={opens(leadArticle)}
                     className="no-underline after:absolute after:inset-0 group-hover:underline"
                   >
                     {pick(leadArticle.title)}
-                  </Link>
+                  </NewsLink>
                 </h3>
                 <time dateTime={leadArticle.date} className="tabular mt-2 block text-sm font-medium text-ink-2">
                   {formatDate(leadArticle.date, lang)}
@@ -505,12 +512,13 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               {moreArticles.map((article) => (
                 <li key={article.slug} className="group relative border-b-2 border-ink py-4 md:py-6">
                   <h3 className="text-lg leading-tight font-bold tracking-[-0.01em] md:text-2xl">
-                    <Link
-                      href={`${sectionHref(s.news, lang)}/${article.slug}`}
+                    <NewsLink
+                      {...newsLink(article, lang)}
+                      externalLabel={opens(article)}
                       className="no-underline after:absolute after:inset-0 group-hover:underline"
                     >
                       {pick(article.title)}
-                    </Link>
+                    </NewsLink>
                   </h3>
                   <time dateTime={article.date} className="tabular mt-1.5 block text-sm font-medium text-ink-2">
                     {formatDate(article.date, lang)}

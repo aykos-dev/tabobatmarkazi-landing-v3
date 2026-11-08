@@ -5,9 +5,9 @@ type Tone = Section["tone"];
 /** Literal class names per tone so Tailwind can see them. */
 export const toneClass: Record<Tone, { bg: string; fg: string; fg2: string; onPaper: string }> = {
   // onPaper: the tone's colour for addresses set on white board (contrast-safe text).
-  paper: { bg: "bg-paper", fg: "text-on-paper", fg2: "text-on-paper-2", onPaper: "text-ink" },
+  paper: { bg: "bg-paper", fg: "text-on-paper", fg2: "text-on-paper-2", onPaper: "text-on-paper" },
   herb: { bg: "bg-herb", fg: "text-on-herb", fg2: "text-on-herb-2", onPaper: "text-herb" },
-  ink: { bg: "bg-ink", fg: "text-on-ink", fg2: "text-on-ink-2", onPaper: "text-ink" },
+  ink: { bg: "bg-ink", fg: "text-on-ink", fg2: "text-on-ink-2", onPaper: "text-on-paper" },
   pomegranate: {
     bg: "bg-pomegranate",
     fg: "text-on-pomegranate",

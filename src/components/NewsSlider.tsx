@@ -1,13 +1,19 @@
 "use client";
 
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { NewsLink } from "@/components/NewsLink";
 import { useEffect, useRef, useState } from "react";
 
 export interface NewsSlide {
   slug: string;
   href: string;
+  /** True when the story opens its source site instead of its own page. */
+  external: boolean;
+  /** Source host shown on the slide, e.g. "kun.uz". */
+  source?: string;
+  /** Screen-reader note for an external story. */
+  externalLabel?: string;
   image: string;
   title: string;
   description: string;
@@ -50,7 +56,7 @@ export function NewsSlider({ slides, labels }: NewsSliderProps) {
   if (!slides.length) return null;
 
   const arrow =
-    "grid size-12 place-items-center border-2 border-ink bg-paper text-ink transition-colors duration-200 hover:bg-ink hover:text-paper disabled:pointer-events-none disabled:opacity-30 md:size-14";
+    "grid size-12 place-items-center border-2 border-ink bg-paper text-on-paper transition-colors duration-200 hover:bg-ink hover:text-paper disabled:pointer-events-none disabled:opacity-30 md:size-14";
 
   return (
     <section aria-roledescription="carousel" aria-label={labels.region} className="relative border-b-2 border-ink">
@@ -65,7 +71,12 @@ export function NewsSlider({ slides, labels }: NewsSliderProps) {
             aria-label={`${i + 1} / ${slides.length}`}
             className="relative w-full shrink-0 snap-start"
           >
-            <Link href={slide.href} className="group block text-on-ink no-underline">
+            <NewsLink
+              href={slide.href}
+              external={slide.external}
+              externalLabel={slide.externalLabel}
+              className="group block text-on-ink no-underline"
+            >
               <div className="relative aspect-[4/5] overflow-hidden bg-stone sm:aspect-[16/10] md:aspect-[21/9]">
                 <Image
                   src={slide.image}
@@ -78,9 +89,17 @@ export function NewsSlider({ slides, labels }: NewsSliderProps) {
                 {/* Ink rises from the lower edge so the text holds on any photograph */}
                 <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 px-4 pt-16 pb-20 md:px-10 md:pb-10">
-                  <time dateTime={slide.date} className="tabular text-sm font-bold text-on-ink-2">
-                    {slide.dateLabel}
-                  </time>
+                  <p className="flex flex-wrap items-center gap-x-3 text-sm font-bold text-on-ink-2">
+                    <time dateTime={slide.date} className="tabular">
+                      {slide.dateLabel}
+                    </time>
+                    {slide.source && (
+                      <span className="inline-flex items-center gap-1">
+                        {slide.source}
+                        <ArrowUpRight aria-hidden className="size-4" strokeWidth={2.5} />
+                      </span>
+                    )}
+                  </p>
                   <h2 className="mt-2 max-w-[22ch] text-3xl leading-[1.05] font-bold tracking-[-0.03em] text-balance group-hover:underline md:max-w-[28ch] md:text-6xl">
                     {slide.title}
                   </h2>
@@ -89,7 +108,7 @@ export function NewsSlider({ slides, labels }: NewsSliderProps) {
                   </p>
                 </div>
               </div>
-            </Link>
+            </NewsLink>
           </li>
         ))}
       </ol>

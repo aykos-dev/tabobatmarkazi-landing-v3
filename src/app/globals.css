@@ -6,6 +6,8 @@
   /* Carton board and print ink */
   --color-paper: #ffffff;
   --color-ink: #141414;
+  /* Text that reads as black: softer than ink, which stays for rules and fields */
+  --color-text: #333333;
   --color-ink-2: #474747;
   --color-ink-3: #6b6b6b;
 
@@ -19,19 +21,19 @@
   --color-on-pomegranate-2: #f6d3d8;
   --color-saffron: #f2b705;
   --color-saffron-bright: #ffc71a;
-  --color-on-saffron: #141414;
+  --color-on-saffron: var(--color-text);
   --color-on-saffron-2: #4a3a05;
   --color-cobalt: #1d44c9;
   --color-cobalt-deep: #1838a8;
   --color-on-cobalt: #ffffff;
   --color-on-cobalt-2: #d3dcf7;
   --color-stone: #e7e4dc;
-  --color-on-stone: #141414;
+  --color-on-stone: var(--color-text);
   --color-on-stone-2: #4d4a42;
   --color-on-ink: #ffffff;
   --color-on-ink-2: #bdbdbd;
   --color-on-ink-3: #333333;
-  --color-on-paper: #141414;
+  --color-on-paper: var(--color-text);
   --color-on-paper-2: #474747;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -48,7 +50,7 @@
 
   body {
     background: var(--color-paper);
-    color: var(--color-ink);
+    color: var(--color-text);
     font-family: var(--font-sans);
     font-feature-settings: "tnum" 0;
     -webkit-font-smoothing: antialiased;
@@ -56,7 +58,7 @@
 
   ::selection {
     background: var(--color-saffron);
-    color: var(--color-ink);
+    color: var(--color-text);
   }
 
   /* Two-tone ring: the white inner band keeps focus visible on herb,

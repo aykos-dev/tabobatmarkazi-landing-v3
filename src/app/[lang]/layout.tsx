@@ -30,7 +30,9 @@ export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
 
-export const dynamicParams = false;
+// Must stay true: child pages render items added in the admin after a build
+// (new services, courses, news). Unknown languages still 404 via isLocale below.
+export const dynamicParams = true;
 
 export async function generateMetadata({
   params,

@@ -1,13 +1,13 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { NewsLink } from "@/components/NewsLink";
 import { SectionBand } from "@/components/SectionBand";
 import { SiteShell } from "@/components/SiteShell";
 import { contact } from "@/data/contact";
-import { latestNews } from "@/data/news";
+import { latestNews, newsLink, sourceHost, type NewsArticle } from "@/data/news";
 import { getSection } from "@/data/sections";
 import { dictionary as d } from "@/i18n/dictionary";
 import { formatDate } from "@/lib/format";
@@ -33,7 +33,11 @@ export default async function NewsPage({ params }: { params: Promise<{ lang: str
   if (!isLocale(lang)) notFound();
   const pick = <T,>(value: Record<Locale, T>) => localize(value, lang);
   const [lead, ...rest] = await latestNews();
-  const href = (slug: string) => `/${lang}/${section.slug}/${slug}`;
+  // A story either opens its own page or, when published elsewhere, its source site.
+  const linkProps = (article: NewsArticle) => ({
+    ...newsLink(article, lang),
+    externalLabel: article.externalUrl ? pick(d.newsSource.opens)(sourceHost(article.externalUrl)) : undefined,
+  });
 
   return (
     <SiteShell lang={lang} current="news">
@@ -73,9 +77,9 @@ export default async function NewsPage({ params }: { params: Promise<{ lang: str
               </figure>
               <div className="mt-4 md:col-span-5 md:mt-0 md:flex md:flex-col md:border-t-2 md:border-ink md:pt-4 md:pb-7">
                 <h2 className="text-3xl leading-tight font-bold tracking-[-0.02em] md:text-5xl">
-                  <Link href={href(lead.slug)} className="no-underline after:absolute after:inset-0 group-hover:underline">
+                  <NewsLink {...linkProps(lead)} className="no-underline after:absolute after:inset-0 group-hover:underline">
                     {pick(lead.title)}
-                  </Link>
+                  </NewsLink>
                 </h2>
                 <time dateTime={lead.date} className="tabular mt-2 block text-sm font-medium text-ink-2">
                   {formatDate(lead.date, lang)}
@@ -83,14 +87,25 @@ export default async function NewsPage({ params }: { params: Promise<{ lang: str
                 <p className="mt-3 max-w-[60ch] leading-snug text-ink-2 md:mt-auto md:text-lg">
                   {pick(lead.description)}
                 </p>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold">
-                  {pick(d.readArticle)}
-                  <ArrowRight
-                    aria-hidden
-                    className="size-4 transition-transform duration-300 ease-out group-hover:translate-x-1"
-                    strokeWidth={2.5}
-                  />
-                </span>
+                {lead.externalUrl ? (
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold">
+                    {pick(d.newsSource.label)}: {sourceHost(lead.externalUrl)}
+                    <ArrowUpRight
+                      aria-hidden
+                      className="size-4 transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      strokeWidth={2.5}
+                    />
+                  </span>
+                ) : (
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold">
+                    {pick(d.readArticle)}
+                    <ArrowRight
+                      aria-hidden
+                      className="size-4 transition-transform duration-300 ease-out group-hover:translate-x-1"
+                      strokeWidth={2.5}
+                    />
+                  </span>
+                )}
               </div>
             </article>
 
@@ -115,16 +130,22 @@ export default async function NewsPage({ params }: { params: Promise<{ lang: str
                     </time>
                     <div className="md:col-span-7">
                       <h2 className="text-2xl leading-tight font-bold tracking-[-0.02em] md:text-4xl">
-                        <Link
-                          href={href(article.slug)}
+                        <NewsLink
+                          {...linkProps(article)}
                           className="no-underline after:absolute after:inset-0 group-hover:underline"
                         >
                           {pick(article.title)}
-                        </Link>
+                        </NewsLink>
                       </h2>
                       <p className="mt-2 max-w-[60ch] leading-snug text-ink-2 md:mt-3 md:text-lg">
                         {pick(article.description)}
                       </p>
+                      {article.externalUrl && (
+                        <p className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold">
+                          {pick(d.newsSource.label)}: {sourceHost(article.externalUrl)}
+                          <ArrowUpRight aria-hidden className="size-4" strokeWidth={2.5} />
+                        </p>
+                      )}
                     </div>
                   </li>
                 ))}

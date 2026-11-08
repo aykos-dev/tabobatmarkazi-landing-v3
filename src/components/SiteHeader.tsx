@@ -107,7 +107,7 @@ export function SiteHeader({ lang, sections, labels, current: initial = "home" }
                   className={`px-1.5 py-1 uppercase no-underline ${
                     locale === lang
                       ? "font-bold underline"
-                      : "text-ink-2 hover:text-ink"
+                      : "text-ink-2 hover:text-on-paper"
                   }`}
                 >
                   {locale}

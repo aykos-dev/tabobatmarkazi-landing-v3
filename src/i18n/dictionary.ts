@@ -38,15 +38,8 @@ export const dictionary = {
     ru: "Концептуальная визуализация",
     en: "Concept visualisation",
   },
-  /** Label on content we wrote ourselves until the centre supplies the real text. */
-  mockLabel: { uz: "Namuna ma'lumot", ru: "Пример данных", en: "Sample data" },
   /** Direction pages (01–06). */
   direction: {
-    sampleNotice: {
-      uz: "Bu bo'limdagi matnlar namuna sifatida tayyorlangan va markaz tasdiqlagan ma'lumotlar bilan almashtiriladi.",
-      ru: "Тексты этого раздела подготовлены как образец и будут заменены сведениями, утверждёнными центром.",
-      en: "The text in this section is a sample and will be replaced with information approved by the centre.",
-    },
     activities: { uz: "Faoliyat yo'nalishlari", ru: "Направления работы", en: "Areas of work" },
     documents: { uz: "Hujjatlar", ru: "Документы", en: "Documents" },
     open: { uz: "Bo'limga o'tish", ru: "Перейти в раздел", en: "Open the section" },
@@ -132,6 +125,15 @@ export const dictionary = {
     uz: "Markaz hayotidan so'nggi xabarlar.",
     ru: "Последние новости из жизни центра.",
     en: "The latest from the centre.",
+  },
+  /** A story that opens on its source site. */
+  newsSource: {
+    label: { uz: "Manba", ru: "Источник", en: "Source" },
+    opens: {
+      uz: (host: string) => `${host} saytida ochiladi`,
+      ru: (host: string) => `откроется на сайте ${host}`,
+      en: (host: string) => `opens on ${host}`,
+    },
   },
   newsSlider: {
     region: { uz: "So'nggi yangiliklar", ru: "Последние новости", en: "Latest news" },

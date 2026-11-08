@@ -6,7 +6,6 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
 import { CallButton } from "@/components/CallButton";
-import { MockNotice } from "@/components/MockNotice";
 import { SectionBand } from "@/components/SectionBand";
 import { SiteShell } from "@/components/SiteShell";
 import { getCourses, type Course } from "@/data/courses";
@@ -51,11 +50,19 @@ export async function DirectionPage({ id, lang }: { id: DirectionId; lang: strin
   return (
     <SiteShell lang={lang} current={id}>
       <SectionBand as="h1" section={section} title={pick(section.title)} lede={pick(content.lede)}>
-        {content.sample && (
-          <div className="mb-8 md:mb-12">
-            <MockNotice label={pick(d.mockLabel)} text={pick(d.direction.sampleNotice)} />
+        <figure className="mb-10 md:mb-16">
+          <div className="relative aspect-[16/10] overflow-hidden bg-stone md:aspect-[21/8]">
+            <Image
+              src={content.image}
+              alt={pick(content.imageAlt)}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
           </div>
-        )}
+          <figcaption className="mt-2 text-xs text-ink-3">{pick(d.conceptCaption)}</figcaption>
+        </figure>
 
         <div className="grid gap-10 md:grid-cols-12 md:gap-x-6">
           <p className="text-xl leading-snug md:col-span-5 md:text-2xl">{pick(content.intro)}</p>
