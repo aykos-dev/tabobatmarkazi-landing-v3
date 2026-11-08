@@ -8,7 +8,7 @@ export const contact = {
   address: {
     uz: "Toshkent sh., Olmazor tumani, Farobiy 2",
     ru: "г.Ташкент, Алмазарский район, Фаробий 2",
-    en: "Farobiy 2, Almazar district, Tashkent city",
+    en: "2, Farobiy, Almazar district, Tashkent city, 100109",
   } as Localized<string>,
   /** Opening hours; the contacts page asks visitors to call until this is set. */
   hours: undefined as Localized<string> | undefined,

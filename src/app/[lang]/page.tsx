@@ -57,8 +57,30 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               {pick(d.wordmark)}
             </p>
             <div className="flex items-baseline justify-between gap-4 border-b-2 border-ink px-4 py-2.5 text-xs font-bold tracking-[0.06em] uppercase md:px-10 md:text-sm">
-              <span className="text-balance">{pick(d.officialName)}</span>
-              <span className="shrink-0">Toshkent · Farobiy 2</span>
+              <span className="text-balance text-blue-600 lg:text-[40px]">{pick(d.officialName)}</span>
+              <span className="shrink-0">
+                {pick({ uz: "Toshkent · Farobiy 2", ru: "Ташкент · Фаробий 2", en: "2, Farobiy, Tashkent" })}
+              </span>
+            </div>
+
+            {/* Motto strip: the phrase runs right to left; still under reduced motion */}
+            <div className="overflow-hidden border-b-2 border-ink py-2 md:py-3">
+              <p className="sr-only">{pick(d.motto)}</p>
+              <div aria-hidden className="marquee-track flex w-max">
+                {[0, 1].map((half) => (
+                  <div key={half} className="flex shrink-0">
+                    {Array.from({ length: 6 }, (_, i) => (
+                      <span
+                        key={i}
+                        className="flex items-center gap-6 pr-6 text-sm font-bold tracking-[0.06em] whitespace-nowrap uppercase md:gap-10 md:pr-10 md:text-lg"
+                      >
+                        {pick(d.motto)}
+                        <span className="size-2 shrink-0 rounded-full bg-blue-600 md:size-2.5" />
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="grid gap-y-5 px-4 pt-4 pb-6 md:grid-cols-12 md:gap-x-6 md:px-10 md:pt-8 md:pb-8">

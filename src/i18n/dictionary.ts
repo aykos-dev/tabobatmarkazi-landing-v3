@@ -3,6 +3,11 @@
 export const dictionary = {
   wordmark: { uz: "TABOBAT", ru: "TABOBAT", en: "TABOBAT" },
   /** The centre's official name, as set in its logo; ru/en translations approved by the centre's side. */
+  motto: {
+    uz: "Ixlos, umid va ishonch",
+    ru: "Искренность, надежда и доверие",
+    en: "Devotion, hope and trust",
+  },
   officialName: {
     uz: "Respublika xalq tabobati ilmiy-amaliy markazi",
     ru: "Республиканский научно-практический центр народной медицины",
@@ -245,7 +250,7 @@ export const dictionary = {
   },
   directions: { uz: "Yo'nalish olish", ru: "Проложить маршрут", en: "Get directions" },
   quickLinks: { uz: "Tezkor havolalar", ru: "Быстрые ссылки", en: "Quick links" },
-  phones: { uz: "Telefonlar", ru: "Телефоны", en: "Phones" },
+  phones: { uz: "Aloqa uchun", ru: "Для связи", en: "For contact" },
   social: { uz: "Ijtimoiy tarmoqlar", ru: "Соцсети", en: "Social" },
   mapTitle: {
     uz: "Tabobat Markazi xaritada",
