@@ -132,7 +132,7 @@ export default async function TabibPage({
                   <Image src={other.image} alt="" fill sizes="7rem" className="object-cover" />
                 </div>
                 <div>
-                  <span className="tabular text-sm font-bold text-pomegranate">
+                  <span className="tabular text-sm font-bold text-herb">
                     {section.number}.{position(other.id) + 1}
                   </span>
                   <h3 className="mt-0.5 text-lg leading-tight font-bold md:text-2xl">

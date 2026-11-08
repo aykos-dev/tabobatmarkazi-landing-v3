@@ -32,10 +32,14 @@ export function SectionBand({
   const tone = toneClass[section.tone];
   const headingId = `${section.slug}-title`;
   const long = number.length > 2;
+  // Titles that can't sit beside the number on a phone (e.g. "Integratsiyalash yo'nalishi")
+  // stack, with the number below them.
+  const stack = long || title.length > 14;
 
   return (
     <section id={section.slug} data-section={section.id} aria-labelledby={headingId}>
-      <div className={`overflow-hidden ${tone.bg} ${tone.fg}`}>
+      {/* Uncoloured sections (News, Contacts) close their head with an ink rule instead of a field */}
+      <div className={`overflow-hidden ${tone.bg} ${tone.fg} ${section.tone === "paper" ? "border-b-2 border-ink" : ""}`}>
         {crumb && (
           <div className={`mx-auto max-w-[1600px] px-4 pt-4 text-sm font-bold md:px-10 md:pt-6 ${tone.fg2}`}>
             {crumb}
@@ -43,7 +47,7 @@ export function SectionBand({
         )}
         <div
           className={`mx-auto grid max-w-[1600px] items-end gap-x-4 px-4 pt-6 md:grid-cols-12 md:gap-x-6 md:px-10 md:pt-10 ${
-            long ? "grid-cols-1" : "grid-cols-[auto_1fr]"
+            stack ? "grid-cols-1" : "grid-cols-[auto_1fr]"
           }`}
         >
           <span
@@ -51,15 +55,17 @@ export function SectionBand({
             className={`tabular -mb-[0.16em] leading-[0.8] font-extrabold tracking-[-0.04em] md:col-span-4 ${
               long
                 ? "order-last text-[clamp(6.5rem,34vw,13rem)] md:order-none"
-                : "text-[clamp(6.5rem,30vw,17rem)]"
+                : stack
+                  ? "order-last text-[clamp(6.5rem,30vw,17rem)] md:order-none"
+                  : "text-[clamp(6.5rem,30vw,17rem)]"
             }`}
           >
             {number}
           </span>
-          <div className="pb-5 md:col-span-7 md:col-start-6 md:pb-10">
+          <div className="min-w-0 pb-5 md:col-span-7 md:col-start-6 md:pb-10">
             <Heading
               id={headingId}
-              className="text-4xl leading-none font-bold tracking-[-0.03em] md:text-7xl"
+              className="text-4xl leading-none font-bold tracking-[-0.03em] text-balance hyphens-auto md:text-7xl"
             >
               {title}
             </Heading>

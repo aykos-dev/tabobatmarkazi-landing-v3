@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { ApplyForm, ApplyLink } from "@/components/ApplyForm";
+import { DirectionCrumb } from "@/components/DirectionCrumb";
 import { SectionBand } from "@/components/SectionBand";
 import { SiteShell } from "@/components/SiteShell";
 import { getCourses } from "@/data/courses";
@@ -35,7 +36,13 @@ export default async function EducationPage({ params }: { params: Promise<{ lang
 
   return (
     <SiteShell lang={lang} current="education">
-      <SectionBand as="h1" section={section} title={pick(section.title)} lede={pick(d.educationLede)}>
+      <SectionBand
+        as="h1"
+        section={section}
+        title={pick(section.title)}
+        lede={pick(d.educationLede)}
+        crumb={<DirectionCrumb section={section} lang={lang} />}
+      >
         <figure className="mb-10 md:mb-16">
           <div className="relative aspect-[16/10] overflow-hidden bg-stone md:aspect-[21/8]">
             <Image

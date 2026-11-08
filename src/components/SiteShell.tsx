@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 import { CallButton } from "@/components/CallButton";
 import { SiteHeader } from "@/components/SiteHeader";
-import { sectionHref, sections, type SectionId } from "@/data/sections";
+import { getSection, navSections, sectionHref, shortTitle, type SectionId } from "@/data/sections";
 import { dictionary as d } from "@/i18n/dictionary";
 import { localize, type Locale } from "@/lib/i18n";
 
@@ -18,19 +18,22 @@ export function SiteShell({
   children: ReactNode;
 }) {
   const pick = <T,>(value: Record<Locale, T>) => localize(value, lang);
-  const titled = sections.map((section) => ({
+  // Menu, header and footer list home, the six directions, then News and Contacts.
+  const titled = navSections.map((section) => ({
     id: section.id,
     number: section.number,
     tone: section.tone,
-    title: pick(section.title),
+    title: pick(shortTitle(section)),
     href: sectionHref(section, lang),
   }));
+  // A page inside a direction shows its direction's address in the header.
+  const here = current ? (getSection(current).parent ?? current) : undefined;
 
   return (
     <>
       <SiteHeader
         lang={lang}
-        current={current}
+        current={here}
         sections={titled}
         labels={{ menu: pick(d.menu), closeMenu: pick(d.closeMenu), language: pick(d.language), home: `${pick(d.officialName)} — ${titled[0].title}` }}
       />

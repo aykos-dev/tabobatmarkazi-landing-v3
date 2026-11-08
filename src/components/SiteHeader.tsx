@@ -76,7 +76,7 @@ export function SiteHeader({ lang, sections, labels, current: initial = "home" }
   return (
     <>
       <header className="sticky top-0 z-40 border-b-2 border-ink bg-paper">
-        <div className="mx-auto flex h-14 max-w-[1600px] items-center justify-between gap-4 px-4 md:px-10">
+        <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between gap-4 px-4 md:px-10">
           <a
             href={`/${lang}`}
             aria-label={labels.home}
@@ -85,10 +85,10 @@ export function SiteHeader({ lang, sections, labels, current: initial = "home" }
             <Image
               src="/brand/logo-mark.png"
               alt=""
-              width={36}
-              height={36}
+              width={60}
+              height={60}
               priority
-              className="size-9 shrink-0"
+              className="size-15 shrink-0"
             />
             <span aria-hidden className="flex min-w-0 items-baseline gap-2">
               <span className="tabular">{current.number}</span>
@@ -161,9 +161,9 @@ export function SiteHeader({ lang, sections, labels, current: initial = "home" }
                       number={section.number}
                       title={section.title}
                       onNavigate={() => setOpen(false)}
-                      className={`flex min-h-16 flex-1 items-center gap-5 border-b-2 border-ink px-4 text-3xl font-bold tracking-[-0.02em] no-underline md:px-10 md:text-5xl ${tone.bg} ${tone.fg}`}
+                      className={`flex min-h-16 flex-1 items-center gap-5 border-b-2 border-ink px-4 py-2 text-2xl leading-tight font-bold tracking-[-0.02em] no-underline sm:text-3xl md:px-10 md:text-5xl ${tone.bg} ${tone.fg}`}
                     >
-                      <span className={`tabular w-12 text-base md:w-20 md:text-2xl ${tone.fg2}`}>
+                      <span className={`tabular w-10 shrink-0 text-base md:w-20 md:text-2xl ${tone.fg2}`}>
                         {section.number}
                       </span>
                       {section.title}
