@@ -4,7 +4,16 @@ import { timingSafeEqual } from "node:crypto";
 
 import type { ContentTag } from "@/lib/api";
 
-const TAGS: ContentTag[] = ["services", "news", "doctors", "products", "product-categories", "courses"];
+const TAGS: ContentTag[] = [
+  "services",
+  "news",
+  "doctors",
+  "products",
+  "product-categories",
+  "courses",
+  "documents",
+  "document-categories",
+];
 
 function secretMatches(given: string | null): boolean {
   const expected = process.env.REVALIDATE_SECRET;

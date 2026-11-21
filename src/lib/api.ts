@@ -16,7 +16,15 @@ const REVALIDATE_SECONDS = 3600;
  */
 const REVALIDATE_BY_TYPE: Partial<Record<ContentTag, number>> = { news: 300 };
 
-export type ContentTag = "services" | "news" | "doctors" | "products" | "product-categories" | "courses";
+export type ContentTag =
+  | "services"
+  | "news"
+  | "doctors"
+  | "products"
+  | "product-categories"
+  | "courses"
+  | "documents"
+  | "document-categories";
 
 /** Text as the API returns it: Uzbek always, other languages when filled in. */
 export interface ApiLocalized {

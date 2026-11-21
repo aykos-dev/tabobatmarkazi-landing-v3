@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { DirectionSummary } from "@/components/DirectionSummary";
+import { DocumentsSummary } from "@/components/DocumentsSummary";
 import { NewsLink } from "@/components/NewsLink";
 import { NewsSlider } from "@/components/NewsSlider";
 import { RangeStrip } from "@/components/RangeStrip";
@@ -13,6 +14,7 @@ import { SiteShell } from "@/components/SiteShell";
 import { contact } from "@/data/contact";
 import { getCourses } from "@/data/courses";
 import { directionContent } from "@/data/directions";
+import { getDocuments } from "@/data/documents";
 import { latestNews, newsLink, sourceHost, type NewsArticle } from "@/data/news";
 import { getProducts } from "@/data/products";
 import { directions, sectionHref, sections, shortTitle } from "@/data/sections";
@@ -34,12 +36,13 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   >;
 
   // Content managed in the admin, served by the questionnaire backend.
-  const [services, news, tabibs, products, courses] = await Promise.all([
+  const [services, news, tabibs, products, courses, documents] = await Promise.all([
     getServices(),
     latestNews(),
     getTabibs(),
     getProducts(),
     getCourses(),
+    getDocuments(),
   ]);
 
   const lowestService = cheapest(services, (service) => service.priceAmount);
@@ -60,7 +63,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       : String(services.length),
     biolab: pick(d.rangeFacts.fitobar)(products.length),
     international: pick(d.direction.facts.activities)(directionContent.international.activities.length),
-    legal: pick(d.direction.facts.documents)(directionContent.legal.documents?.length ?? 0),
+    legal: pick(d.documents.count)(documents.length),
   };
   const rangeItems = directions.map((section) => ({
     section,
@@ -468,8 +471,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </SectionBand>
 
         {/* 06 — Me'yoriy-huquqiy */}
-        <SectionBand section={s.legal} title={pick(s.legal.title)} lede={pick(directionContent.legal.lede)}>
-          <DirectionSummary id="legal" lang={lang} />
+        <SectionBand section={s.legal} title={pick(s.legal.title)} lede={pick(d.documents.lede)}>
+          <DocumentsSummary documents={documents} lang={lang} />
         </SectionBand>
 
         {/* 07 — Yangiliklar */}
@@ -478,7 +481,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           <div className="grid gap-8 md:grid-cols-12 md:gap-x-6">
             <article className="group relative grid gap-x-6 md:col-span-12 md:grid-cols-12">
               <figure className="md:col-span-7">
-                <div className="relative aspect-[16/10] overflow-hidden bg-stone md:aspect-[2/1]">
+                <div className="relative aspect-[16/9] overflow-hidden bg-stone md:aspect-[2/1]">
                   <Image
                     src={leadArticle.image}
                     alt=""

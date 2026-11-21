@@ -27,6 +27,17 @@ export function priceText(amount: number): Localized<string> {
 
 const dateLocales: Record<Locale, string> = { uz: "uz-Latn-UZ", ru: "ru-RU", en: "en-GB" };
 
+const sizeUnits: Record<Locale, [kb: string, mb: string]> = { uz: ["KB", "MB"], ru: ["КБ", "МБ"], en: ["KB", "MB"] };
+
+/** 1258291 -> "1,2 MB" / "1,2 МБ" / "1.2 MB". */
+export function formatBytes(bytes: number, lang: Locale): string {
+  const [kb, mb] = sizeUnits[lang];
+  const big = bytes >= 1024 * 1024;
+  const value = big ? bytes / (1024 * 1024) : Math.max(1, Math.round(bytes / 1024));
+  const digits = new Intl.NumberFormat(dateLocales[lang], { maximumFractionDigits: 1 }).format(value);
+  return `${digits} ${big ? mb : kb}`;
+}
+
 /** "2026-06-15" -> "15-iyun, 2026" / "15 июня 2026 г." / "15 June 2026". */
 export function formatDate(iso: string, lang: Locale): string {
   return new Intl.DateTimeFormat(dateLocales[lang], {

@@ -313,6 +313,67 @@ export const dictionary = {
     ru: "Изображения на сайте — концептуальные визуализации; настоящие фото центра скоро.",
     en: "Images on this site are concept visualisations; real photographs of the centre are coming.",
   },
+  /** The legal documents library (06). */
+  documents: {
+    title: { uz: "Me'yoriy-huquqiy hujjatlar", ru: "Нормативно-правовые документы", en: "Legal documents" },
+    lede: {
+      uz: "Markaz faoliyatini tartibga soluvchi barcha hujjatlar bilan tanishing.",
+      ru: "Все документы, регулирующие работу центра.",
+      en: "Every document that governs the centre's work.",
+    },
+    count: {
+      uz: (n: number) => `${n} ta hujjat`,
+      ru: (n: number) => `${n} ${ruPlural(n, "документ", "документа", "документов")}`,
+      en: (n: number) => `${n} ${n === 1 ? "document" : "documents"}`,
+    },
+    categoryCount: {
+      uz: (n: number) => `${n} ta kategoriya`,
+      ru: (n: number) => `${n} ${ruPlural(n, "категория", "категории", "категорий")}`,
+      en: (n: number) => `${n} ${n === 1 ? "category" : "categories"}`,
+    },
+    search: { uz: "Hujjat nomi bo'yicha qidirish…", ru: "Поиск по названию документа…", en: "Search by document title…" },
+    searchLabel: { uz: "Hujjatlarni qidirish", ru: "Поиск документов", en: "Search documents" },
+    filterLabel: { uz: "Kategoriya", ru: "Категория", en: "Category" },
+    all: { uz: "Barchasi", ru: "Все", en: "All" },
+    heading: { uz: "Hujjatlar", ru: "Документы", en: "Documents" },
+    viewLabel: { uz: "Ko'rinish", ru: "Вид", en: "View" },
+    list: { uz: "Ro'yxat", ru: "Список", en: "List" },
+    cards: { uz: "Kartalar", ru: "Карточки", en: "Cards" },
+    view: { uz: "Ko'rish", ru: "Открыть", en: "View" },
+    download: { uz: "Yuklab olish", ru: "Скачать", en: "Download" },
+    opensInTab: { uz: "yangi oynada ochiladi", ru: "откроется в новой вкладке", en: "opens in a new tab" },
+    noMatches: {
+      uz: "Hech narsa topilmadi. Boshqa so'z bilan qidirib ko'ring.",
+      ru: "Ничего не найдено. Попробуйте другое слово.",
+      en: "Nothing found. Try another word.",
+    },
+    reset: { uz: "Filtrlarni tozalash", ru: "Сбросить фильтры", en: "Clear filters" },
+    empty: {
+      uz: "Hujjatlar tez orada joylanadi.",
+      ru: "Документы скоро появятся.",
+      en: "Documents are coming soon.",
+    },
+    latest: { uz: "So'nggi hujjatlar", ru: "Последние документы", en: "Latest documents" },
+    openAll: {
+      uz: (n: number) => `Barcha hujjatlar (${n})`,
+      ru: (n: number) => `Все документы (${n})`,
+      en: (n: number) => `All documents (${n})`,
+    },
+    /** A document's date is shown as its year only. */
+    year: {
+      uz: (year: number) => `${year}-yil`,
+      ru: (year: number) => `${year} г.`,
+      en: (year: number) => `${year}`,
+    },
+    megabytes: { uz: "MB", ru: "МБ", en: "MB" },
+    kilobytes: { uz: "KB", ru: "КБ", en: "KB" },
+  },
 } satisfies Record<string, unknown>;
+
+/** Russian noun form for a count: 1 документ, 3 документа, 16 документов. */
+function ruPlural(n: number, one: string, few: string, many: string): string {
+  const form = new Intl.PluralRules("ru").select(n);
+  return form === "one" ? one : form === "few" ? few : many;
+}
 
 export type Dictionary = typeof dictionary;

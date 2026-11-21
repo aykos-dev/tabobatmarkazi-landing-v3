@@ -105,7 +105,7 @@ export default async function ArticlePage({
         <div className="mx-auto max-w-[1600px] px-4 py-8 md:px-10 md:py-14">
           <figure className="md:grid md:grid-cols-12 md:gap-x-6">
             <PhotoButton index={0} className="md:col-span-9 md:col-start-4">
-              <div className="relative aspect-[16/10] overflow-hidden bg-stone md:aspect-[2/1]">
+              <div className="relative aspect-[16/9] overflow-hidden bg-stone md:aspect-[2/1]">
                 <Image
                   src={article.image}
                   alt=""

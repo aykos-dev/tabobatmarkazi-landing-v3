@@ -388,35 +388,6 @@ export const directionContent: Record<DirectionId, DirectionContent> = {
         },
       },
     ],
-    documents: [
-      {
-        title: {
-          uz: "O'zbekiston Respublikasining \"Fuqarolar sog'lig'ini saqlash to'g'risida\"gi Qonuni",
-          ru: "Закон Республики Узбекистан «Об охране здоровья граждан»",
-          en: "Law of the Republic of Uzbekistan \"On Protection of Citizens' Health\"",
-        },
-        kind: { uz: "Qonun", ru: "Закон", en: "Law" },
-      },
-      {
-        title: { uz: "Markaz Nizomi", ru: "Устав центра", en: "Charter of the centre" },
-        kind: { uz: "Ichki hujjat", ru: "Внутренний документ", en: "Internal document" },
-      },
-      {
-        title: {
-          uz: "Xalq tabobati xizmatlarini ko'rsatish tartibi",
-          ru: "Порядок оказания услуг народной медицины",
-          en: "Procedure for providing folk-medicine services",
-        },
-        kind: DRAFT,
-      },
-      {
-        title: {
-          uz: "Mutaxassislarga qo'yiladigan malaka talablari",
-          ru: "Квалификационные требования к специалистам",
-          en: "Qualification requirements for specialists",
-        },
-        kind: DRAFT,
-      },
-    ],
+    // Its documents are real content now, managed in the admin (src/data/documents.ts).
   },
 };

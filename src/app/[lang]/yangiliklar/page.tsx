@@ -63,7 +63,7 @@ export default async function NewsPage({ params }: { params: Promise<{ lang: str
             {/* The latest story leads */}
             <article className="group relative grid gap-x-6 md:grid-cols-12">
               <figure className="md:col-span-7">
-                <div className="relative aspect-[16/10] overflow-hidden bg-stone md:aspect-[2/1]">
+                <div className="relative aspect-[16/9] overflow-hidden bg-stone md:aspect-[2/1]">
                   <Image
                     src={lead.image}
                     alt=""
@@ -118,7 +118,7 @@ export default async function NewsPage({ params }: { params: Promise<{ lang: str
                     key={article.slug}
                     className="group relative grid gap-x-6 gap-y-3 border-b-2 border-ink py-6 md:grid-cols-12 md:py-8"
                   >
-                    <div className="relative aspect-[16/10] overflow-hidden bg-stone md:order-last md:col-span-3 md:aspect-[4/3]">
+                    <div className="relative aspect-[16/9] overflow-hidden bg-stone md:order-last md:col-span-3 md:aspect-[4/3]">
                       <Image
                         src={article.image}
                         alt=""

@@ -29,9 +29,10 @@ interface NewsSliderProps {
 }
 
 /**
- * The latest news as one wide plate at a time: the image fills the slide, the
- * title and two lines of description sit on its lower edge. Swipe or use the
- * arrows; scroll snapping does the work, so it also scrolls without JS.
+ * The latest news as one wide plate at a time. Covers are 16:9: on phones the
+ * whole image shows with the title and description on ink beneath it; from
+ * 768px the text sits on the image's lower edge (cropped to 21:9 from 1024px).
+ * Swipe or use the arrows; scroll snapping does the work, so it also scrolls without JS.
  */
 export function NewsSlider({ slides, labels }: NewsSliderProps) {
   const trackRef = useRef<HTMLOListElement>(null);
@@ -76,9 +77,9 @@ export function NewsSlider({ slides, labels }: NewsSliderProps) {
               href={slide.href}
               external={slide.external}
               externalLabel={slide.externalLabel}
-              className="group block text-on-ink no-underline"
+              className="group flex h-full flex-col bg-ink text-on-ink no-underline md:block"
             >
-              <div className="relative aspect-[4/5] overflow-hidden bg-stone sm:aspect-[16/10] md:aspect-[21/9]">
+              <div className="relative aspect-[16/9] overflow-hidden bg-stone lg:aspect-[21/9]">
                 <Image
                   src={slide.image}
                   alt=""
@@ -88,28 +89,29 @@ export function NewsSlider({ slides, labels }: NewsSliderProps) {
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                 />
                 {/* Ink rises from the lower edge so the text holds on any photograph */}
-                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 px-4 pt-16 pb-20 md:px-10 md:pb-10">
-                  <p className="flex flex-wrap items-center gap-x-3 text-sm font-bold text-on-ink-2">
-                    {slide.date && (
-                      <time dateTime={slide.date} className="tabular">
-                        {slide.dateLabel}
-                      </time>
-                    )}
-                    {slide.source && (
-                      <span className="inline-flex items-center gap-1">
-                        {slide.source}
-                        <ArrowUpRight aria-hidden className="size-4" strokeWidth={2.5} />
-                      </span>
-                    )}
-                  </p>
-                  <h2 className="mt-2 max-w-[22ch] text-3xl leading-[1.05] font-bold tracking-[-0.03em] text-balance group-hover:underline md:max-w-[28ch] md:text-6xl">
-                    {slide.title}
-                  </h2>
-                  <p className="mt-3 line-clamp-2 max-w-[60ch] text-base leading-snug text-on-ink-2 md:mt-4 md:text-xl md:pr-40">
-                    {slide.description}
-                  </p>
-                </div>
+                <div aria-hidden className="absolute inset-0 hidden bg-gradient-to-t from-ink via-ink/55 to-transparent md:block" />
+              </div>
+              {/* Phones: beneath the image, room left for the arrows. Wider: over its lower edge. */}
+              <div className="flex-1 px-4 pt-4 pb-20 md:absolute md:inset-x-0 md:bottom-0 md:px-10 md:pt-16 md:pb-10">
+                <p className="flex flex-wrap items-center gap-x-3 text-sm font-bold text-on-ink-2">
+                  {slide.date && (
+                    <time dateTime={slide.date} className="tabular">
+                      {slide.dateLabel}
+                    </time>
+                  )}
+                  {slide.source && (
+                    <span className="inline-flex items-center gap-1">
+                      {slide.source}
+                      <ArrowUpRight aria-hidden className="size-4" strokeWidth={2.5} />
+                    </span>
+                  )}
+                </p>
+                <h2 className="mt-2 max-w-[22ch] text-3xl leading-[1.05] font-bold tracking-[-0.03em] text-balance group-hover:underline md:max-w-[28ch] md:text-5xl lg:text-6xl">
+                  {slide.title}
+                </h2>
+                <p className="mt-3 line-clamp-2 max-w-[60ch] text-base leading-snug text-on-ink-2 md:mt-4 md:text-xl md:pr-40">
+                  {slide.description}
+                </p>
               </div>
             </NewsLink>
           </li>
